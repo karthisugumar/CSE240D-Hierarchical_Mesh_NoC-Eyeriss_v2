@@ -25,11 +25,11 @@ module PE #( parameter DATA_WIDTH = 16,
 		   ( input clk, reset,
 			 input [DATA_WIDTH-1:0] act_in,
 			 input [DATA_WIDTH-1:0] filt_in,
-			 output [DATA_WIDTH-1:0] pe_out,
-			 output [DATA_WIDTH-1:0] act_out,
+			 output logic [DATA_WIDTH-1:0] pe_out,
+			 output logic [DATA_WIDTH-1:0] act_out,
 //extra
 			output logic [1:0] filt_count,
-			output [DATA_WIDTH-1:0] mac_out
+			output logic [DATA_WIDTH-1:0] mac_out
 			
     );
 	
@@ -81,15 +81,16 @@ module PE #( parameter DATA_WIDTH = 16,
 			act_reg_out <= 0;
 		
 		end else begin
-			if(filt_count == (kernel_size-1)) begin
+			if(filt_count == (kernel_size) ) begin
 				filt_count <= 0;
 				sum_in_mux_sel <= 0;
-				psum_reg <= 0;
 				act_reg_out <= 0;
+				psum_reg <= psum_reg_out;
 			
-			if(filt_count == 0) begin
+			end else if(filt_count == 0) begin
+				filt_count <= filt_count + 1;
 				sum_in_mux_sel <= 0;
-				psum_reg <= 0;
+				psum_reg <= psum_reg_out;
 				act_reg_out <= 0;
 				
 			end else begin
@@ -116,6 +117,7 @@ module PE #( parameter DATA_WIDTH = 16,
 			act_reg_out <= 0;
 		end
 	end */
+	
 	assign mac_out = psum_reg_out;
 	assign pe_out = psum_reg;
 	assign act_out = act_reg_out;

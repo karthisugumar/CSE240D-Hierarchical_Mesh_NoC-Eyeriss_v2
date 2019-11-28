@@ -44,19 +44,52 @@ module PE_tb();
 		reset = 1; #30;
 		reset = 0;
 	
+	//First 3 acts
 		act_in = 1;
 		filt_in = 1; 
-		#25;
+		#20;
 		$display("Output from PE is %d",pe_out);
 		
 		act_in = 2;
 		filt_in = 2; 
-		#25;
+		#20;
 		$display("Output from PE is %d",pe_out);
 		
 		act_in = 3;
 		filt_in = 3; 
-		#25;
+		#20;
+		$display("Output from PE is %d",pe_out);
+		
+	//next 3
+		act_in = 2;
+		filt_in = 1; 
+		#40;
+		$display("Output from PE is %d",pe_out);
+		
+		act_in = 3;
+		filt_in = 2; 
+		#20;
+		$display("Output from PE is %d",pe_out);
+		
+		act_in = 4;
+		filt_in = 3; 
+		#20;
+		$display("Output from PE is %d",pe_out);
+	
+	//next 3
+		act_in = 3;
+		filt_in = 1; 
+		#40;
+		$display("Output from PE is %d",pe_out);
+		
+		act_in = 4;
+		filt_in = 2; 
+		#20;
+		$display("Output from PE is %d",pe_out);
+		
+		act_in = 5;
+		filt_in = 3; 
+		#20;
 		$display("Output from PE is %d",pe_out);
 		
 	end
