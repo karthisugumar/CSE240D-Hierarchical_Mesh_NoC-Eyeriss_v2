@@ -25,7 +25,7 @@ module PE_cluster_tb();
 	parameter DATA_WIDTH = 16;
     parameter ADDR_WIDTH = 9;
     
-    parameter int X_dim = 5;
+    parameter int X_dim = 3;
     parameter int Y_dim = 3;
     
     parameter int kernel_size = 3;
@@ -43,9 +43,12 @@ module PE_cluster_tb();
     logic [DATA_WIDTH-1:0] act_in;
     logic [DATA_WIDTH-1:0] filt_in;
     logic load_en, start;
-    logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0];
-    logic compute_done;
+
+//    logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0];
+  
+	logic compute_done;
 	
+	logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0];
 	
 	PE_cluster #(
 					.DATA_WIDTH(DATA_WIDTH),
@@ -65,8 +68,11 @@ module PE_cluster_tb();
 				    .filt_in(filt_in),
 				    .load_en(load_en), 
 					.start(start),
-                    .pe_out(pe_out),
-					.compute_done(compute_done)
+//                    .pe_out(pe_out),
+					.compute_done(compute_done),
+					
+		//extra
+					.psum_out(psum_out)
     			);
 				
 				
@@ -85,31 +91,14 @@ module PE_cluster_tb();
 		load_en = 1;
 		
 	//Filter
-	//1st row
-		filt_in = 1; 
-		#20; load_en = 0;
-		filt_in = 1; 
-		#20;
-		filt_in = 1; 
-		#20;
-	
-	//2nd row	
-		filt_in = 1; 
-		#20;
-		filt_in = 1; 
-		#20;
-		
-	//3rd row
-		filt_in = 1; 
-		#20;
-		filt_in = 1; 
-		#20;
-		
+		for(int i=1; i<=kernel_size**2; i++) begin
+			filt_in = i; #20;
+			load_en = 0;
+		end
 		
 	//Activations
-		for(int i=1; i<=25; i++) begin
-			act_in = i; 
-			#20;
+		for(int i=1; i<=act_size**2; i++) begin
+			act_in = i; #20;
 		end
 		
 //		load_en = 0;
@@ -118,6 +107,12 @@ module PE_cluster_tb();
 		start = 1; #25; 
 		$display("\n\nReading & Computing Begins.....\n\n");
 		start = 0;
+		
+		#100
+		for(int i=0; i<X_dim*Y_dim; i++) begin
+			$display("psum from pe(%d) is:",i+1,psum_out[i]);
+		end
+		
 	end
 				
 				

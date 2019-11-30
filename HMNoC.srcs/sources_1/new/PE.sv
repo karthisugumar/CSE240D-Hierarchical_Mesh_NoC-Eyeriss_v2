@@ -39,7 +39,7 @@ module PE #( parameter DATA_WIDTH = 16,
 			 input [DATA_WIDTH-1:0] filt_in,
 			 input load_en, start,
 			 output logic [DATA_WIDTH-1:0] pe_out,
-			 output logic [DATA_WIDTH-1:0] act_out
+			 output logic compute_done
     );
 	
 
@@ -95,6 +95,8 @@ module PE #( parameter DATA_WIDTH = 16,
 	logic [1:0] read_count;
 	logic [7:0] filt_count;
 	
+	logic [2:0] iter;
+	
 	// FSM for PE
 	always@(posedge clk) begin
 //		$display("State: %s", state.name());
@@ -111,19 +113,25 @@ module PE #( parameter DATA_WIDTH = 16,
 			w_data <= 0;
 			write_en <= 0;
 			read_en <= 0;
-			
+			compute_done <= 0;
 			mac_en <= 0;
-			
+			iter <= 0;
 			state <= IDLE;
 		end
 		else begin
 			case(state)
 				IDLE:begin
 					if(start) begin
-						r_addr <= A_READ_ADDR;
-						filt_count <= 0;
-						read_en <= 1;
-						state <= READ_W;
+						if(iter == (act_size-kernel_size+1) ) begin
+							iter <= 0;
+							state <= IDLE;
+						end else begin
+							r_addr <= A_READ_ADDR + iter*act_size;
+							filt_count <= 0;
+							sum_in_mux_sel = 0;
+							read_en <= 1;
+							state <= READ_W;
+						end
 					end else begin
 						if(load_en) begin
 							
@@ -135,6 +143,7 @@ module PE #( parameter DATA_WIDTH = 16,
 							state <= LOAD_W;
 						end else begin
 							write_en <= 0;
+							compute_done <= 0;
 							state <= IDLE;
 						end
 					end
@@ -169,7 +178,7 @@ module PE #( parameter DATA_WIDTH = 16,
 					if(filt_count == kernel_size) begin
 						act_in_reg <= r_data;
 						read_en <= 0;
-						w_addr <= PSUM_ADDR;
+						w_addr <= PSUM_ADDR + iter;
 						write_en <= 1;
 						state <= WRITE;
 					end else begin
@@ -178,13 +187,17 @@ module PE #( parameter DATA_WIDTH = 16,
 						end else begin
 							sum_in_mux_sel = 1;	
 						end
-						r_addr <= A_READ_ADDR + filt_count;
+						r_addr <= A_READ_ADDR + filt_count + iter*act_size;
 						state <= READ_W;
 					end
 				end
 				
 				WRITE:begin
 					w_data <= psum_reg;
+					r_addr <= W_READ_ADDR;
+					read_en <= 1;
+					iter <= iter + 1;
+					compute_done <= 1;
 					state <= IDLE;
 				end
 				

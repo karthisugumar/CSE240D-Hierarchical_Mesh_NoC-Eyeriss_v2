@@ -42,11 +42,14 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 					input [DATA_WIDTH-1:0] act_in,
 					input [DATA_WIDTH-1:0] filt_in,
 					input load_en, start,
-					output logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0],
-					output logic compute_done
+//					output logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0],
+					output logic compute_done,
+					
+		//extra 
+					output logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0]
 					);
 		
-		logic psum_out[X_dim*Y_dim-1 : 0];
+//		logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0];
 		
 		generate
 		genvar i;
@@ -60,8 +63,8 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 								.ADDR_WIDTH(ADDR_WIDTH),
 								.kernel_size(kernel_size),
 								.act_size(act_size),
-								.W_READ_ADDR(W_READ_ADDR+kernel_size*j),  
-								.A_READ_ADDR(A_READ_ADDR+kernel_size*j+i),
+								.W_READ_ADDR(W_READ_ADDR + kernel_size*j),  
+								.A_READ_ADDR(A_READ_ADDR + act_size*j + i),
 								.W_LOAD_ADDR(W_LOAD_ADDR),  
 								.A_LOAD_ADDR(A_LOAD_ADDR),
 								.PSUM_ADDR(PSUM_ADDR)
@@ -80,6 +83,8 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 					end
 			end
 		endgenerate
+		
+	//	assign pe_out[X_dim-1:0] = psum_out[X_dim*Y_dim-1 : 0]
 			  
 endmodule
 				   
