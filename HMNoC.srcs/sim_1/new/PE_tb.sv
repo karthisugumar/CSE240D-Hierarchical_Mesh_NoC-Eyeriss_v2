@@ -25,11 +25,13 @@ module PE_tb();
 	parameter DATA_WIDTH = 16;
 	parameter ADDR_WIDTH = 9;
 	
+	parameter int kernel_size = 3;
+	parameter int act_size = 7;
 	
 	//KEEP READ AND WRITE ADDRESSES SAME for proper working of RS-PE 
 	//Addresses to READ weights and activations from SPad
-	parameter W_READ_ADDR = 0; 
-	parameter A_READ_ADDR = 100;
+	parameter W_READ_ADDR = 0 + kernel_size; 
+	parameter A_READ_ADDR = 100 + act_size;
 	
 	//Addresses to WRITE weights and activations in SPad
 	parameter W_LOAD_ADDR = 0;
@@ -37,8 +39,7 @@ module PE_tb();
 	
 	parameter PSUM_ADDR = 500;
 	
-	parameter int kernel_size = 3;
-	parameter int act_size = 5;
+
 			 
 	logic clk, reset;
 	logic [DATA_WIDTH-1:0] act_in, filt_in, pe_out;
@@ -73,32 +74,43 @@ module PE_tb();
 		
 	$display("\n\nLoading Begins.....\n\n");
 		load_en = 1;
+/*	
+	//Filter
+	//1st row
+		filt_in = 1; 
+		#20; load_en = 0;
+		filt_in = 1; 
+		#20;
+		filt_in = 1; 
+		#20;
+	
+	//2nd row	
+		filt_in = 1; 
+		#20;
+		filt_in = 1; 
+		#20;
+		filt_in = 1; 
+		#20;
+		
+	//3rd row
+		filt_in = 1; 
+		#20;
+		filt_in = 1; 
+		#20;
+		filt_in = 1; 
+		#20;
+*/
 		
 	//Filter
-		filt_in = 4; 
-		#20; load_en = 0;
-		filt_in = 5; 
-		#20;
-		filt_in = 6; 
-		#20;
-//		filt_in = 4;
-//		#20;
-//		filt_in = 5;
-//		#20;
-//		filt_in = 0;
+		for(int i=1; i<=kernel_size**2; i++) begin
+			filt_in = i; #20;
+			load_en = 0;
+		end
 		
 	//Activations
-		act_in = 2; 
-		#20;
-		act_in = 3; 
-		#20;
-		act_in = 4; 
-		#20;
-		act_in = 9; 
-		#20;
-		act_in = 10; 
-		#20;
-//		act_in = 0; 
+		for(int i=1; i<=act_size**2; i++) begin
+			act_in = i; #20;
+		end
 		
 //		load_en = 0;
 //		#20

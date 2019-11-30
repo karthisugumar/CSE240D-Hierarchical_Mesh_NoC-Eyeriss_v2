@@ -93,11 +93,11 @@ module PE #( parameter DATA_WIDTH = 16,
 	
 	
 	logic [1:0] read_count;
-	logic [3:0] filt_count;
+	logic [7:0] filt_count;
 	
 	// FSM for PE
 	always@(posedge clk) begin
-		$display("State: %s", state.name());
+//		$display("State: %s", state.name());
 		if(reset) begin
 			//Initialize registers
 			filt_count <= 0;
@@ -145,15 +145,15 @@ module PE #( parameter DATA_WIDTH = 16,
 					read_en <= 1;
 					filt_count <= filt_count + 1;
 					
-					$display("Weight read: %d from address: %d", r_data, r_addr);
-					$display("Read Enable: %d", read_en);
+//					$display("Weight read: %d from address: %d", r_data, r_addr);
+//					$display("Read Enable: %d", read_en);
 					
 					state <= READ_A;
 				end
 				
 				READ_A:begin
-					$display("Act read: %d from address: %d", r_data, r_addr);
-					$display("Read Enable: %d", read_en);
+//					$display("Act read: %d from address: %d", r_data, r_addr);
+//					$display("Read Enable: %d", read_en);
 					act_in_reg <= r_data;
 					read_en <= 1;
 					r_addr <= W_READ_ADDR + filt_count;
@@ -162,8 +162,8 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 					
 				COMPUTE:begin
-				$display("Weight in reg: %d  |  Act in reg: %d", filt_in_reg, act_in_reg);
-				$display("MAC out: %d", psum_reg);
+//				$display("Weight in reg: %d  |  Act in reg: %d", filt_in_reg, act_in_reg);
+//				$display("MAC out: %d", psum_reg);
 				
 					mac_en <= 0;
 					if(filt_count == kernel_size) begin
@@ -189,9 +189,9 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 				
 				LOAD_W:begin
-				$display("Weight write: %d to address: %d", filt_in, w_addr);
-				$display("Write Enable: %d", write_en);					
-					if(filt_count == (kernel_size-1)) begin
+//				$display("Weight write: %d to address: %d", filt_in, w_addr);
+//				$display("Write Enable: %d", write_en);					
+					if(filt_count == (kernel_size**2-1)) begin
 						
 						w_addr <= A_LOAD_ADDR; // *** Loading of activations starts at 100 ***
 						
@@ -207,9 +207,9 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 				
 				LOAD_A:begin
-				$display("Act write: %d to address: %d", act_in,  w_addr);
-				$display("Write Enable: %d", write_en);					
-					if(filt_count == (act_size-1)) begin
+//				$display("Act write: %d to address: %d", act_in,  w_addr);
+//				$display("Write Enable: %d", write_en);			
+					if(filt_count == (act_size**2-1)) begin
 						write_en <= 0;
 						read_en <= 1;
 						r_addr <= W_READ_ADDR;
