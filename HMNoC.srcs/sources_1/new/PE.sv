@@ -65,8 +65,6 @@ module PE #( parameter DATA_WIDTH = 16,
 	logic [DATA_WIDTH-1:0] psum_reg;
 	logic [DATA_WIDTH-1:0] sum_in;
 	logic sum_in_mux_sel;
-	logic [DATA_WIDTH-1:0] psum_reg_out;
-	logic [DATA_WIDTH-1:0] act_reg_out;
 	
 	logic [DATA_WIDTH-1:0] act_in_reg;
 	logic [DATA_WIDTH-1:0] filt_in_reg;
@@ -92,9 +90,7 @@ module PE #( parameter DATA_WIDTH = 16,
 										);
 	
 	
-	logic [1:0] read_count;
 	logic [7:0] filt_count;
-	
 	logic [2:0] iter;
 	
 	// FSM for PE
@@ -104,8 +100,6 @@ module PE #( parameter DATA_WIDTH = 16,
 			//Initialize registers
 			filt_count <= 0;
 			sum_in_mux_sel = 0;
-			act_reg_out <= 0;
-			read_count <= 0;
 			
 			//Initialize scratchpad inputs
 			w_addr <= W_READ_ADDR;
@@ -239,6 +233,5 @@ module PE #( parameter DATA_WIDTH = 16,
 	end
 						
 	assign pe_out = psum_reg;
-	assign act_out = act_reg_out;
 
 endmodule

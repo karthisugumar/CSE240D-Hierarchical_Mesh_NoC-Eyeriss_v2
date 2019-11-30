@@ -51,6 +51,8 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 		
 //		logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0];
 		
+		logic cluster_done[X_dim*Y_dim-1 : 0];
+		
 		generate
 		genvar i;
 		for(i=0; i<X_dim; i++) 
@@ -77,13 +79,14 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 								.load_en(load_en), 
 								.start(start),
 								.pe_out(psum_out[i*Y_dim+j]),
-								.act_out()
+								.compute_done(cluster_done[i*Y_dim+j])
 							);
 					
 					end
 			end
 		endgenerate
 		
+		assign compute_done = cluster_done[0];
 	//	assign pe_out[X_dim-1:0] = psum_out[X_dim*Y_dim-1 : 0]
 			  
 endmodule
