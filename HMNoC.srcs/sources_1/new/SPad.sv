@@ -46,7 +46,7 @@ module SPad #( parameter DATA_BITWIDTH = 16,
 					data <= mem[r_addr];
 					$display("Read Address to SPad:%d",r_addr);
 				end else begin
-					data <= 100;
+					data <= 10101;
 				end
 			end
 		end
@@ -59,10 +59,16 @@ module SPad #( parameter DATA_BITWIDTH = 16,
 		$display("\t\t\t\t\t Current Status:\n \
 				 \t mem[0]:%d", mem[0],
 				" | mem[1]:%d", mem[1],
-				" | mem[2]:%d\n", mem[2],
+				" | mem[2]:%d", mem[2],
+				" | mem[3]:%d", mem[3],
+				" | mem[4]:%d", mem[4],
+				" | mem[5]:%d\n", mem[5],
 				" \t\t\t\t\t mem[100]:%d", mem[100],
 				" | mem[101]:%d", mem[101],
-				" | mem[102]:%d\n", mem[102],
+				" | mem[102]:%d", mem[102],
+				" | mem[103]:%d", mem[103],
+				" | mem[104]:%d", mem[104],
+				" | mem[105]:%d\n", mem[105],
 				" \t\t\t\t\t psum:%d", mem[500]);
 				
 			if(write_en && !reset) begin

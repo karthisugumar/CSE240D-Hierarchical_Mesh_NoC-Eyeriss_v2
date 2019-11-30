@@ -24,7 +24,10 @@ module PE #( parameter DATA_WIDTH = 16,
 			 parameter ADDR_WIDTH = 9,
 			 parameter W_READ_ADDR = 0,
 			 parameter A_READ_ADDR = 100,
-			 parameter PSUM_ADDR = 500)
+			 parameter PSUM_ADDR = 500,
+			 parameter int kernel_size = 3,
+			 parameter int act_size = 5 )
+			 
 		   ( input clk, reset,
 			 input [DATA_WIDTH-1:0] act_in,
 			 input [DATA_WIDTH-1:0] filt_in,
@@ -33,8 +36,7 @@ module PE #( parameter DATA_WIDTH = 16,
 			 output logic [DATA_WIDTH-1:0] act_out
     );
 	
-	parameter int kernel_size = 3;
-	parameter int act_size = 5;
+
 	
 	enum logic [2:0] {IDLE=3'b000, READ_W=3'b001, READ_A=3'b010, COMPUTE=3'b011,
 					  WRITE=3'b100, LOAD_W=3'b101, LOAD_A=3'b110} state;
@@ -180,7 +182,7 @@ module PE #( parameter DATA_WIDTH = 16,
 				LOAD_W:begin
 				$display("Weight write: %d to address: %d", filt_in, w_addr);
 				$display("Write Enable: %d", write_en);
-					if(load_en) begin						
+//					if(load_en) begin						
 						if(filt_count == (kernel_size-1)) begin
 							w_addr <= A_READ_ADDR;
 							w_data <= act_in;
@@ -192,27 +194,28 @@ module PE #( parameter DATA_WIDTH = 16,
 							filt_count <= filt_count + 1;
 							state <= LOAD_W;
 						end
-					end else begin
-						state <= IDLE;
-					end
+//					end else begin
+//						state <= IDLE;
+//					end
 				end
 				
 				LOAD_A:begin
 				$display("Act write: %d to address: %d", act_in,  w_addr);
 				$display("Write Enable: %d", write_en);
-					if(load_en) begin						
+//					if(load_en) begin						
 						if(filt_count == (act_size-1)) begin
 							write_en <= 0;
+							read_en <= 1;
 							state <= IDLE;
 						end else begin
 							w_data <= act_in;
 							w_addr <= w_addr + 1;
 							filt_count <= filt_count + 1;
 							state <= LOAD_A;
-						end
-					end else begin
-						read_en <= 1;
-						state <= IDLE;
+//						end
+//					end else begin
+//						read_en <= 1;
+//						state <= IDLE;
 					end
 				end
 			endcase

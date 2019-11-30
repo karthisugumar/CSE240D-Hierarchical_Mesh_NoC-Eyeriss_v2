@@ -23,18 +23,31 @@
 module PE_tb();
 
 	parameter DATA_WIDTH = 16;
+	parameter ADDR_WIDTH = 9;
+	
+	parameter W_READ_ADDR = 3;
+	parameter A_READ_ADDR = 100;
+	parameter PSUM_ADDR = 500;
+	
+	parameter int kernel_size = 3;
+	parameter int act_size = 5;
+			 
 	logic clk, reset;
 	logic [DATA_WIDTH-1:0] act_in, filt_in, pe_out;
 	
 	logic load_en, start;
 	
-	PE pe_0 ( .clk(clk), .reset(reset), 
-			  .act_in(act_in), .filt_in(filt_in),
-			  .pe_out(pe_out),  //out
-			  .act_out(), //out
-			  .load_en(load_en),
-			  .start(start)
-			);
+	PE  #( .kernel_size(kernel_size),
+		   .act_size(act_size),
+		   .W_READ_ADDR(W_READ_ADDR) )
+	pe_0		   
+		( .clk(clk), .reset(reset), 
+		  .act_in(act_in), .filt_in(filt_in),
+		  .pe_out(pe_out),  //out
+		  .act_out(), //out
+		  .load_en(load_en),
+		  .start(start)
+		);
 			  
 	always begin
 		clk = 0; #10;
@@ -51,12 +64,16 @@ module PE_tb();
 		
 	//Filter
 		filt_in = 1; 
-		#20;
+		#20; load_en = 0;
 		filt_in = 2; 
 		#20;
 		filt_in = 3; 
 		#20;
-		filt_in = 0;
+//		filt_in = 4;
+//		#20;
+//		filt_in = 5;
+//		#20;
+//		filt_in = 0;
 		
 	//Activations
 		act_in = 1; 
@@ -71,10 +88,10 @@ module PE_tb();
 		#20;
 		act_in = 0; 
 		
-		load_en = 0;
-		#20
+//		load_en = 0;
+//		#20
 		
-		start = 1; #20; 
+		start = 1; #25; 
 		$display("\n\nReading & Computing Begins.....\n\n");
 		start = 0;
 	end
