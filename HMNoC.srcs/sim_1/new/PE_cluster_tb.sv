@@ -44,11 +44,11 @@ module PE_cluster_tb();
     logic [DATA_WIDTH-1:0] filt_in;
     logic load_en, start;
 
-//    logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0];
+    logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0];
   
 	logic compute_done;
 	
-	logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0];
+//	logic [DATA_WIDTH-1:0] psum_out[0 : X_dim*Y_dim-1];
 	
 	PE_cluster #(
 					.DATA_WIDTH(DATA_WIDTH),
@@ -68,11 +68,11 @@ module PE_cluster_tb();
 				    .filt_in(filt_in),
 				    .load_en(load_en), 
 					.start(start),
-//                    .pe_out(pe_out),
-					.compute_done(compute_done),
+                    .pe_out(pe_out),
+					.compute_done(compute_done)
 					
 		//extra
-					.psum_out(psum_out)
+//					.psum_out(psum_out)
     			);
 				
 				
@@ -111,8 +111,8 @@ module PE_cluster_tb();
 		wait (compute_done == 1);	
 		#40
 		$display("\n\nFinal PSUM of Iteration 1");
-		for(int i=0; i<X_dim*Y_dim; i++) begin
-			$display("\npsum from pe(%d) is:",i+1,psum_out[i]);
+ 		for(int i=0; i<X_dim; i++) begin
+			$display("\npsum from column %d is:%d",i+1,pe_out[i]);
 		end
 		
 		
@@ -123,8 +123,8 @@ module PE_cluster_tb();
 		
 				wait (compute_done == 1);	
 		$display("\n\nFinal PSUM of Iteration 2:");
-		for(int i=0; i<X_dim*Y_dim; i++) begin
-			$display("\npsum from pe(%d) is:",i+1,psum_out[i]);
+ 		for(int i=0; i<X_dim; i++) begin
+			$display("\npsum from column %d is:%d",i+1,pe_out[i]);
 		end
 		
 		#40;
@@ -134,9 +134,10 @@ module PE_cluster_tb();
 		
 		wait (compute_done == 1);	
 		$display("\n\nFinal PSUM of Iteration 3:");
-		for(int i=0; i<X_dim*Y_dim; i++) begin
-		$display("\npsum from pe(%d) is:",i+1,psum_out[i]);
+ 		for(int i=0; i<X_dim; i++) begin
+			$display("\npsum from column %d is:%d",i+1,pe_out[i]);
 		end
+		
 		
 /* 		#40;
 		start = 1; #25; 
@@ -159,6 +160,7 @@ module PE_cluster_tb();
 		for(int i=0; i<X_dim*Y_dim; i++) begin
 		$display("\npsum from pe(%d) is:",i+1,psum_out[i]);
 		end */
+
 		
 		reset = 1; #30;
 		reset = 0;
@@ -188,9 +190,10 @@ module PE_cluster_tb();
 		wait (compute_done == 1);	
 		#40
 		$display("\n\nFinal PSUM of Iteration 1");
-		for(int i=0; i<X_dim*Y_dim; i++) begin
-			$display("\npsum from pe(%d) is:",i+1,psum_out[i]);
+ 		for(int i=0; i<X_dim; i++) begin
+			$display("\npsum from column %d is:%d",i+1,pe_out[i]);
 		end
+		
 		
 		
 	end

@@ -42,16 +42,16 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 					input [DATA_WIDTH-1:0] act_in,
 					input [DATA_WIDTH-1:0] filt_in,
 					input load_en, start,
-//					output logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0],
-					output logic compute_done,
+					output logic [DATA_WIDTH-1:0] pe_out[0 : X_dim-1],
+					output logic compute_done
 					
 		//extra 
-					output logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0]
+		//			output logic [DATA_WIDTH-1:0] psum_out[0 : X_dim*Y_dim-1]
 					);
 		
-//		logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0];
+		logic [DATA_WIDTH-1:0] psum_out[0 : X_dim*Y_dim-1];
 		
-		logic cluster_done[X_dim*Y_dim-1 : 0];
+		logic cluster_done[0 : X_dim*Y_dim-1];
 		
 		generate
 		genvar i;
@@ -86,7 +86,85 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 			end
 		endgenerate
 		
+		
+		virtual class myClass#(parameter MY_PARAM);
+    static function my_function;
+        input [MY_PARAM-1:0] data, my_bit;
+        begin
+            my_function = data[my_bit];
+        end
+    endfunction
+endclass
+		
+/*  		virtual class psum_adder_class #(parameter X_dim, parameter Y_dim, parameter DATA_WIDTH);
+			static function logic [DATA_WIDTH-1 : 0] psum_adder 
+				(
+					input logic [DATA_WIDTH-1:0] psum_out[X_dim*Y_dim-1 : 0]
+				);
+				begin
+					psum_adder = {(DATA_WIDTH){1'b0}};
+					for(int i=0; i<Y_dim; i++) begin
+						psum_adder = psum_adder + psum_out[Y_dim*X_dim+i];
+					end
+				end
+			endfunction
+		endclass  */
+					
+		
+
+
+ 			function logic [DATA_WIDTH-1 : 0] psum_adder 
+				(
+					input logic [DATA_WIDTH-1:0] psum_out[0 : X_dim*Y_dim-1],
+					input logic [3:0] X_dim,
+					input logic [3:0] Y_dim
+				);
+				begin
+					psum_adder = {(DATA_WIDTH){1'b0}};
+					for(int i=0; i<Y_dim; i++) begin
+						psum_adder = psum_adder + psum_out[Y_dim*X_dim+i];
+					end
+				end
+			endfunction
+				
+				
+				
+/* 		always@(posedge clk) begin
+			if(reset) begin
+				for(int i=0; i<X_dim; i++) begin
+					pe_out[i] <= 0;
+				end
+			end else begin
+				for(int i=0; i<X_dim; i++) begin
+					pe_out[i] <= psum_adder_class#
+									(.X_dim(i),
+									 .Y_dim(Y_dim),
+									 .DATA_WIDTH(DATA_WIDTH)
+									)
+									::psum_adder(psum_out);
+				end
+			end
+			
+		end */
+		
+		
+		// Add partial sums and register at pe_out
+		always@(posedge clk) begin
+			if(reset) begin
+				for(int i=0; i<X_dim; i++) begin
+					pe_out[i] <= 0;
+				end
+			end else begin
+				for(int i=0; i<X_dim; i++) begin
+					pe_out[i] <= psum_adder(psum_out,i,Y_dim);
+				end
+			end
+			
+		end
+		
+		
 		assign compute_done = cluster_done[0];
+		
 	//	assign pe_out[X_dim-1:0] = psum_out[X_dim*Y_dim-1 : 0]
 			  
 endmodule
