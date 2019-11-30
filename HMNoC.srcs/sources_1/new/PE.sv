@@ -22,9 +22,15 @@
 
 module PE #( parameter DATA_WIDTH = 16,
 			 parameter ADDR_WIDTH = 9,
-			 parameter W_READ_ADDR = 0,
-			 parameter A_READ_ADDR = 100,
+			 
+			 parameter W_READ_ADDR = 0,     //Weights READ address
+			 parameter A_READ_ADDR = 100,   //Activations READ address
+			 
+			 parameter W_LOAD_ADDR = 0,     //Weights LOAD address
+			 parameter A_LOAD_ADDR = 100,   //Activations LOAD address
+			 
 			 parameter PSUM_ADDR = 500,
+			 
 			 parameter int kernel_size = 3,
 			 parameter int act_size = 5 )
 			 
@@ -114,13 +120,15 @@ module PE #( parameter DATA_WIDTH = 16,
 			case(state)
 				IDLE:begin
 					if(start) begin
-						r_addr <= W_READ_ADDR;
+						r_addr <= A_READ_ADDR;
 						filt_count <= 0;
 						read_en <= 1;
 						state <= READ_W;
 					end else begin
 						if(load_en) begin
-							w_addr <= W_READ_ADDR;
+							
+							w_addr <= W_LOAD_ADDR;  //***Loading of weights starts at index 0***
+							
 							w_data <= filt_in;
 							write_en <= 1;
 							filt_count <= 0;
@@ -133,9 +141,8 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 				
 				READ_W:begin
-					//read_en <= 1;
-					r_addr <= A_READ_ADDR + filt_count;
 					filt_in_reg <= r_data;
+					read_en <= 1;
 					filt_count <= filt_count + 1;
 					
 					$display("Weight read: %d from address: %d", r_data, r_addr);
@@ -148,6 +155,7 @@ module PE #( parameter DATA_WIDTH = 16,
 					$display("Act read: %d from address: %d", r_data, r_addr);
 					$display("Read Enable: %d", read_en);
 					act_in_reg <= r_data;
+					read_en <= 1;
 					r_addr <= W_READ_ADDR + filt_count;
 					mac_en <= 1;
 					state <= COMPUTE;
@@ -170,6 +178,7 @@ module PE #( parameter DATA_WIDTH = 16,
 						end else begin
 							sum_in_mux_sel = 1;	
 						end
+						r_addr <= A_READ_ADDR + filt_count;
 						state <= READ_W;
 					end
 				end
@@ -181,41 +190,35 @@ module PE #( parameter DATA_WIDTH = 16,
 				
 				LOAD_W:begin
 				$display("Weight write: %d to address: %d", filt_in, w_addr);
-				$display("Write Enable: %d", write_en);
-//					if(load_en) begin						
-						if(filt_count == (kernel_size-1)) begin
-							w_addr <= A_READ_ADDR;
-							w_data <= act_in;
-							filt_count <= 0;
-							state <= LOAD_A;
-						end else begin
-							w_data <= filt_in;
-							w_addr <= w_addr + 1;
-							filt_count <= filt_count + 1;
-							state <= LOAD_W;
-						end
-//					end else begin
-//						state <= IDLE;
-//					end
+				$display("Write Enable: %d", write_en);					
+					if(filt_count == (kernel_size-1)) begin
+						
+						w_addr <= A_LOAD_ADDR; // *** Loading of activations starts at 100 ***
+						
+						w_data <= act_in;
+						filt_count <= 0;
+						state <= LOAD_A;
+					end else begin
+						w_data <= filt_in;
+						w_addr <= w_addr + 1;
+						filt_count <= filt_count + 1;
+						state <= LOAD_W;
+					end
 				end
 				
 				LOAD_A:begin
 				$display("Act write: %d to address: %d", act_in,  w_addr);
-				$display("Write Enable: %d", write_en);
-//					if(load_en) begin						
-						if(filt_count == (act_size-1)) begin
-							write_en <= 0;
-							read_en <= 1;
-							state <= IDLE;
-						end else begin
-							w_data <= act_in;
-							w_addr <= w_addr + 1;
-							filt_count <= filt_count + 1;
-							state <= LOAD_A;
-//						end
-//					end else begin
-//						read_en <= 1;
-//						state <= IDLE;
+				$display("Write Enable: %d", write_en);					
+					if(filt_count == (act_size-1)) begin
+						write_en <= 0;
+						read_en <= 1;
+						r_addr <= W_READ_ADDR;
+						state <= IDLE;
+					end else begin
+						w_data <= act_in;
+						w_addr <= w_addr + 1;
+						filt_count <= filt_count + 1;
+						state <= LOAD_A;
 					end
 				end
 			endcase

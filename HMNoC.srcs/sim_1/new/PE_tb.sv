@@ -25,8 +25,16 @@ module PE_tb();
 	parameter DATA_WIDTH = 16;
 	parameter ADDR_WIDTH = 9;
 	
-	parameter W_READ_ADDR = 3;
+	
+	//KEEP READ AND WRITE ADDRESSES SAME for proper working of RS-PE 
+	//Addresses to READ weights and activations from SPad
+	parameter W_READ_ADDR = 0; 
 	parameter A_READ_ADDR = 100;
+	
+	//Addresses to WRITE weights and activations in SPad
+	parameter W_LOAD_ADDR = 0;
+	parameter A_LOAD_ADDR = 100;
+	
 	parameter PSUM_ADDR = 500;
 	
 	parameter int kernel_size = 3;
@@ -37,9 +45,13 @@ module PE_tb();
 	
 	logic load_en, start;
 	
-	PE  #( .kernel_size(kernel_size),
-		   .act_size(act_size),
-		   .W_READ_ADDR(W_READ_ADDR) )
+	PE  #( 	.kernel_size(kernel_size),
+			.act_size(act_size),
+			.W_READ_ADDR(W_READ_ADDR),
+			.A_READ_ADDR(A_READ_ADDR),
+			.W_LOAD_ADDR(W_LOAD_ADDR),
+			.A_LOAD_ADDR(A_LOAD_ADDR)
+		   )
 	pe_0		   
 		( .clk(clk), .reset(reset), 
 		  .act_in(act_in), .filt_in(filt_in),
@@ -63,11 +75,11 @@ module PE_tb();
 		load_en = 1;
 		
 	//Filter
-		filt_in = 1; 
+		filt_in = 4; 
 		#20; load_en = 0;
-		filt_in = 2; 
+		filt_in = 5; 
 		#20;
-		filt_in = 3; 
+		filt_in = 6; 
 		#20;
 //		filt_in = 4;
 //		#20;
@@ -76,17 +88,17 @@ module PE_tb();
 //		filt_in = 0;
 		
 	//Activations
-		act_in = 1; 
-		#20;
 		act_in = 2; 
 		#20;
 		act_in = 3; 
 		#20;
 		act_in = 4; 
 		#20;
-		act_in = 5; 
+		act_in = 9; 
 		#20;
-		act_in = 0; 
+		act_in = 10; 
+		#20;
+//		act_in = 0; 
 		
 //		load_en = 0;
 //		#20
