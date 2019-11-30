@@ -24,15 +24,16 @@ module PE_tb();
 
 	parameter DATA_WIDTH = 16;
 	logic clk, reset;
-	logic [DATA_WIDTH-1:0] act_in, filt_in, pe_out, act_out;
-	logic [1:0] filt_count;
+	logic [DATA_WIDTH-1:0] act_in, filt_in, pe_out;
 	
-	logic [DATA_WIDTH-1:0] mac_out;
+	logic load_en, start;
 	
-	PE pe_0 ( .clk(clk), .reset(reset), .act_in(act_in), .filt_in(filt_in),
-			  .pe_out(pe_out), .act_out(act_out),
-	//extra		
-			  .filt_count(filt_count), .mac_out(mac_out)
+	PE pe_0 ( .clk(clk), .reset(reset), 
+			  .act_in(act_in), .filt_in(filt_in),
+			  .pe_out(pe_out),  //out
+			  .act_out(), //out
+			  .load_en(load_en),
+			  .start(start)
 			);
 			  
 	always begin
@@ -43,55 +44,39 @@ module PE_tb();
 	initial begin
 		reset = 1; #30;
 		reset = 0;
-	
-	//First 3 acts
-		act_in = 1;
+		start = 0;
+		
+	$display("\n\nLoading Begins.....\n\n");
+		load_en = 1;
+		
+	//Filter
 		filt_in = 1; 
 		#20;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 2;
 		filt_in = 2; 
 		#20;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 3;
 		filt_in = 3; 
 		#20;
-		$display("Output from PE is %d",pe_out);
+		filt_in = 0;
 		
-	//next 3
-		act_in = 2;
-		filt_in = 1; 
-		#40;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 3;
-		filt_in = 2; 
+	//Activations
+		act_in = 1; 
 		#20;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 4;
-		filt_in = 3; 
+		act_in = 2; 
 		#20;
-		$display("Output from PE is %d",pe_out);
-	
-	//next 3
-		act_in = 3;
-		filt_in = 1; 
-		#40;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 4;
-		filt_in = 2; 
+		act_in = 3; 
 		#20;
-		$display("Output from PE is %d",pe_out);
-		
-		act_in = 5;
-		filt_in = 3; 
+		act_in = 4; 
 		#20;
-		$display("Output from PE is %d",pe_out);
+		act_in = 5; 
+		#20;
+		act_in = 0; 
 		
+		load_en = 0;
+		#20
+		
+		start = 1; #20; 
+		$display("\n\nReading & Computing Begins.....\n\n");
+		start = 0;
 	end
 	
 endmodule

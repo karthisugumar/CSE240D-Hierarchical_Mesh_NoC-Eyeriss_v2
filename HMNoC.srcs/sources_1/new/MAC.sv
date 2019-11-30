@@ -25,12 +25,17 @@ module MAC #( parameter IN_BITWIDTH = 16,
 			( input [IN_BITWIDTH-1 : 0] a_in,
 			  input [IN_BITWIDTH-1 : 0] w_in,
 			  input [IN_BITWIDTH-1 : 0] sum_in,
-			  output [OUT_BITWIDTH-1 : 0] out
+			  input en, clk,
+			  output logic [OUT_BITWIDTH-1 : 0] out
 			);
 	
 	logic [OUT_BITWIDTH-1:0] mult_out;
 	
-	assign mult_out = a_in * w_in;
-	assign out = mult_out + sum_in;
+	always@(posedge clk) begin
+		if(en) begin
+			mult_out = a_in * w_in;
+			out <= mult_out + sum_in;
+		end
+	end
 	
 endmodule
