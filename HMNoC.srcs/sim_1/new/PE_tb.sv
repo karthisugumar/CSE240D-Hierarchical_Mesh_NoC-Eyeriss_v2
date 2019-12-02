@@ -44,7 +44,8 @@ module PE_tb();
 	logic clk, reset;
 	logic [DATA_WIDTH-1:0] act_in, filt_in, pe_out;
 	
-	logic load_en, start;
+//	logic load_en, start;
+	logic load_en_wght, load_en_act, start;
 	
 	PE  #( 	.kernel_size(kernel_size),
 			.act_size(act_size),
@@ -58,7 +59,9 @@ module PE_tb();
 		  .act_in(act_in), .filt_in(filt_in),
 		  .pe_out(pe_out),  //out
 		  .compute_done(compute_done), //out
-		  .load_en(load_en),
+//		  .load_en(load_en),
+		  .load_en_wght(load_en_wght),
+		  .load_en_act(load_en_act),
 		  .start(start)
 		);
 			  
@@ -72,8 +75,8 @@ module PE_tb();
 		reset = 0;
 		start = 0;
 		
-	$display("\n\nLoading Begins.....\n\n");
-		load_en = 1;
+	$display("\n\nLoading Begins: Weights.....\n\n");
+		load_en_wght = 1;
 /*	
 	//Filter
 	//1st row
@@ -104,16 +107,22 @@ module PE_tb();
 	//Filter
 		for(int i=1; i<=kernel_size**2; i++) begin
 			filt_in = i; #20;
-			load_en = 0;
+			load_en_wght = 0;
 		end
 		
+		#50;
+		
+		
+		$display("\n\nLoading Begins: Activations.....\n\n");
+		load_en_act = 1;
 	//Activations
 		for(int i=1; i<=act_size**2; i++) begin
 			act_in = i; #20;
+			load_en_act = 0;
 		end
 		
 //		load_en = 0;
-//		#20
+		#20
 		
 		start = 1; #25; 
 		$display("\n\nReading & Computing Begins for iter 1.....\n\n");

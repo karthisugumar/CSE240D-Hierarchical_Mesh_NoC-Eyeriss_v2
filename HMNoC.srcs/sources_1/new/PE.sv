@@ -37,9 +37,12 @@ module PE #( parameter DATA_WIDTH = 16,
 		   ( input clk, reset,
 			 input [DATA_WIDTH-1:0] act_in,
 			 input [DATA_WIDTH-1:0] filt_in,
-			 input load_en, start,
+//			 input load_en,
+			 input load_en_wght, load_en_act,
+			 input start,
 			 output logic [DATA_WIDTH-1:0] pe_out,
-			 output logic compute_done
+			 output logic compute_done,
+			 output logic load_done
     );
 	
 
@@ -95,7 +98,7 @@ module PE #( parameter DATA_WIDTH = 16,
 	
 	// FSM for PE
 	always@(posedge clk) begin
-//		$display("State: %s", state.name());
+		$display("State: %s", state.name());
 		if(reset) begin
 			//Initialize registers
 			filt_count <= 0;
@@ -110,6 +113,7 @@ module PE #( parameter DATA_WIDTH = 16,
 			compute_done <= 0;
 			mac_en <= 0;
 			iter <= 0;
+			load_done <= 0;
 			state <= IDLE;
 		end
 		else begin
@@ -127,15 +131,27 @@ module PE #( parameter DATA_WIDTH = 16,
 							state <= READ_W;
 						end
 					end else begin
-						if(load_en) begin
+/* 						if(load_en) begin
 							
 							w_addr <= W_LOAD_ADDR;  //***Loading of weights starts at index 0***
 							
 							w_data <= filt_in;
 							write_en <= 1;
 							filt_count <= 0;
+							state <= LOAD_W; */
+						if(load_en_wght) begin
+							w_addr <= W_LOAD_ADDR;  //***Loading of weights starts at index 0***
+							w_data <= filt_in;
+							write_en <= 1;
+							filt_count <= 0;
 							state <= LOAD_W;
+						end else if(load_en_act) begin
+							write_en <= 1;
+							w_addr <= A_LOAD_ADDR; // *** Loading of activations starts at 100 ***
+							w_data <= act_in;
+							state <= LOAD_A;
 						end else begin
+							load_done <= 0;
 							write_en <= 0;
 							compute_done <= 0;
 							state <= IDLE;
@@ -198,13 +214,17 @@ module PE #( parameter DATA_WIDTH = 16,
 				LOAD_W:begin
 //				$display("Weight write: %d to address: %d", filt_in, w_addr);
 //				$display("Write Enable: %d", write_en);					
-					if(filt_count == (kernel_size**2-1)) begin
+/* 					if(filt_count == (kernel_size**2-1)) begin
 						
 						w_addr <= A_LOAD_ADDR; // *** Loading of activations starts at 100 ***
 						
 						w_data <= act_in;
 						filt_count <= 0;
-						state <= LOAD_A;
+						state <= LOAD_A; */
+					if(filt_count == (kernel_size**2-1)) begin
+						filt_count <= 0;
+						load_done <= 1;
+						state <= IDLE;
 					end else begin
 						w_data <= filt_in;
 						w_addr <= w_addr + 1;
@@ -214,12 +234,13 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 				
 				LOAD_A:begin
-//				$display("Act write: %d to address: %d", act_in,  w_addr);
-//				$display("Write Enable: %d", write_en);			
+				$display("Act write: %d to address: %d", act_in,  w_addr);
+				$display("Write Enable: %d", write_en);			
 					if(filt_count == (act_size**2-1)) begin
 						write_en <= 0;
 						read_en <= 1;
 						r_addr <= W_READ_ADDR;
+						load_done <= 1;
 						state <= IDLE;
 					end else begin
 						w_data <= act_in;

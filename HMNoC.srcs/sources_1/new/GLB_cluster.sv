@@ -31,29 +31,29 @@ module GLB_cluster
 		   ( input clk,
 			 input reset,
 			 
-			 input read_req_iact[NUM_GLB_IACT-1:0], 
-			 input read_req_psum[NUM_GLB_PSUM-1:0],
-			 input read_req_wght[NUM_GLB_WGHT-1:0],
+			 input read_req_iact, 
+			 input read_req_psum,
+			 input read_req_wght,
 			 
-			 input write_en_iact[NUM_GLB_IACT-1:0], 
-			 input write_en_psum[NUM_GLB_PSUM-1:0],
-			 input write_en_wght[NUM_GLB_WGHT-1:0],
+			 input write_en_iact, 
+			 input write_en_psum,
+			 input write_en_wght,
 			 
-			 input [ADDR_BITWIDTH-1 : 0] r_addr_iact[NUM_GLB_IACT-1:0],
-			 input [ADDR_BITWIDTH-1 : 0] r_addr_psum[NUM_GLB_PSUM-1:0],
-			 input [ADDR_BITWIDTH-1 : 0] r_addr_wght[NUM_GLB_WGHT-1:0],
+			 input [ADDR_BITWIDTH-1 : 0] r_addr_iact,
+			 input [ADDR_BITWIDTH-1 : 0] r_addr_psum,
+			 input [ADDR_BITWIDTH-1 : 0] r_addr_wght,
 			 
-			 input [ADDR_BITWIDTH-1 : 0] w_addr_iact[NUM_GLB_IACT-1:0],
-			 input [ADDR_BITWIDTH-1 : 0] w_addr_psum[NUM_GLB_PSUM-1:0],
-			 input [ADDR_BITWIDTH-1 : 0] w_addr_wght[NUM_GLB_WGHT-1:0],
+			 input [ADDR_BITWIDTH-1 : 0] w_addr_iact,
+			 input [ADDR_BITWIDTH-1 : 0] w_addr_psum,
+			 input [ADDR_BITWIDTH-1 : 0] w_addr_wght,
 			 
-			 input [DATA_BITWIDTH-1 : 0] w_data_iact[NUM_GLB_IACT-1:0],
-			 input [DATA_BITWIDTH-1 : 0] w_data_psum[NUM_GLB_PSUM-1:0],
-			 input [DATA_BITWIDTH-1 : 0] w_data_wght[NUM_GLB_WGHT-1:0],
+			 input [DATA_BITWIDTH-1 : 0] w_data_iact,
+			 input [DATA_BITWIDTH-1 : 0] w_data_psum,
+			 input [DATA_BITWIDTH-1 : 0] w_data_wght,
 			 
-			 output logic [DATA_BITWIDTH-1 : 0] r_data_iact[NUM_GLB_IACT-1:0],
-			 output logic [DATA_BITWIDTH-1 : 0] r_data_psum[NUM_GLB_PSUM-1:0],
-			 output logic [DATA_BITWIDTH-1 : 0] r_data_wght[NUM_GLB_WGHT-1:0]
+			 output logic [DATA_BITWIDTH-1 : 0] r_data_iact,
+			 output logic [DATA_BITWIDTH-1 : 0] r_data_psum,
+			 output logic [DATA_BITWIDTH-1 : 0] r_data_wght
 			);
 			
 			//Instantiate iact global buffer
@@ -66,12 +66,12 @@ module GLB_cluster
 								)
 					glb_iact_inst ( .clk(clk), 
 									.reset(reset),
-									.read_req(read_req_iact[i]),
-									.write_en(write_en_iact[i]), 
-									.r_addr(r_addr_iact[i]), 
-									.w_data(w_data_iact[i]),
-									.r_data(r_data_iact[i]), 
-									.w_addr(w_addr_iact[i])
+									.read_req(read_req_iact),
+									.write_en(write_en_iact), 
+									.r_addr(r_addr_iact), 
+									.w_data(w_data_iact),
+									.r_data(r_data_iact), 
+									.w_addr(w_addr_iact)
 									);
 				end
 			endgenerate
@@ -87,12 +87,12 @@ module GLB_cluster
 							) 
 					glb_psum_inst ( .clk(clk), 
 									.reset(reset), 
-									.read_req(read_req_psum[j]),
-									.write_en(write_en_psum[j]), 
-									.r_addr(r_addr_psum[j]), 
-									.w_data(w_data_psum[j]),
-									.r_data(r_data_psum[j]), 
-									.w_addr(w_addr_psum[j])
+									.read_req(read_req_psum),
+									.write_en(write_en_psum), 
+									.r_addr(r_addr_psum), 
+									.w_data(w_data_psum),
+									.r_data(r_data_psum), 
+									.w_addr(w_addr_psum)
 									);
 				end
 			endgenerate
@@ -107,12 +107,12 @@ module GLB_cluster
 							) 
 					glb_weight_inst ( .clk(clk), 
 									.reset(reset), 
-									.read_req(read_req_wght[k]),
-									.write_en(write_en_wght[k]), 
-									.r_addr(r_addr_wght[k]), 
-									.w_data(w_data_wght[k]),
-									.r_data(r_data_wght[k]), 
-									.w_addr(w_addr_wght[k])
+									.read_req(read_req_wght),
+									.write_en(write_en_wght), 
+									.r_addr(r_addr_wght), 
+									.w_data(w_data_wght),
+									.r_data(r_data_wght), 
+									.w_addr(w_addr_wght)
 									);
 				end
 			endgenerate
