@@ -87,15 +87,6 @@ module PE_cluster #(parameter DATA_WIDTH = 16,
 		endgenerate
 		
 		
-		virtual class myClass#(parameter MY_PARAM);
-    static function my_function;
-        input [MY_PARAM-1:0] data, my_bit;
-        begin
-            my_function = data[my_bit];
-        end
-    endfunction
-endclass
-		
 /*  		virtual class psum_adder_class #(parameter X_dim, parameter Y_dim, parameter DATA_WIDTH);
 			static function logic [DATA_WIDTH-1 : 0] psum_adder 
 				(

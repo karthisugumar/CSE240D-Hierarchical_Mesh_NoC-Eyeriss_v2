@@ -26,51 +26,70 @@ module GLB_cluster_tb();
 	parameter ADDR_BITWIDTH = 10;
     parameter NUM_GLB_IACT = 1;
     parameter NUM_GLB_PSUM = 1;
-
+	parameter NUM_GLB_WGHT = 1;
+	
     logic clk;
     logic reset;
 
-    logic read_req_iact[NUM_GLB_IACT-1:0], read_req_psum[NUM_GLB_PSUM-1:0];
-    logic write_en_iact[NUM_GLB_IACT-1:0], write_en_psum[NUM_GLB_PSUM-1:0];
-
+    logic read_req_iact[NUM_GLB_IACT-1:0];
+	logic read_req_psum[NUM_GLB_PSUM-1:0];
+	logic read_req_wght[NUM_GLB_WGHT-1:0];
+	
+    logic write_en_iact[NUM_GLB_IACT-1:0];
+	logic write_en_psum[NUM_GLB_PSUM-1:0];
+	logic write_en_wght[NUM_GLB_WGHT-1:0];
+	
     logic [ADDR_BITWIDTH-1 : 0] r_addr_iact[NUM_GLB_IACT-1:0];
     logic [ADDR_BITWIDTH-1 : 0] r_addr_psum[NUM_GLB_PSUM-1:0];
-
+	logic [ADDR_BITWIDTH-1 : 0] r_addr_wght[NUM_GLB_WGHT-1:0];
+	
     logic [ADDR_BITWIDTH-1 : 0] w_addr_iact[NUM_GLB_IACT-1:0];
     logic [ADDR_BITWIDTH-1 : 0] w_addr_psum[NUM_GLB_PSUM-1:0];
-
+	logic [ADDR_BITWIDTH-1 : 0] w_addr_wght[NUM_GLB_WGHT-1:0];
+	
     logic [DATA_BITWIDTH-1 : 0] w_data_iact[NUM_GLB_IACT-1:0];
     logic [DATA_BITWIDTH-1 : 0] w_data_psum[NUM_GLB_PSUM-1:0];
-
+	logic [DATA_BITWIDTH-1 : 0] w_data_wght[NUM_GLB_WGHT-1:0];
+	
     logic [DATA_BITWIDTH-1 : 0] r_data_iact[NUM_GLB_IACT-1:0];
     logic [DATA_BITWIDTH-1 : 0] r_data_psum[NUM_GLB_PSUM-1:0];
-     
+    logic [DATA_BITWIDTH-1 : 0] r_data_wght[NUM_GLB_WGHT-1:0];
 
 	GLB_cluster 
 			#(	.DATA_BITWIDTH(DATA_BITWIDTH),
 				.ADDR_BITWIDTH(ADDR_BITWIDTH),
 				.NUM_GLB_IACT(NUM_GLB_IACT),
-				.NUM_GLB_PSUM(NUM_GLB_PSUM)
+				.NUM_GLB_PSUM(NUM_GLB_PSUM),
+				.NUM_GLB_WGHT(NUM_GLB_WGHT)
 			)
 	GLB_cluster_0
 			(
 				.clk(clk), 
 				.reset(reset),
+				
 				.read_req_iact(read_req_iact),
 				.read_req_psum(read_req_psum),
+				.read_req_wght(read_req_wght),
+				
 				.write_en_iact(write_en_iact),
 				.write_en_psum(write_en_psum),
+				.write_en_wght(write_en_wght),
+				
 				.r_addr_iact(r_addr_iact),
 			    .r_addr_psum(r_addr_psum),
+				.r_addr_wght(r_addr_wght),
 
 			    .w_addr_iact(w_addr_iact),
 			    .w_addr_psum(w_addr_psum),
+				.w_addr_wght(w_addr_wght),
 
 			    .w_data_iact(w_data_iact),
 			    .w_data_psum(w_data_psum),
+				.w_data_wght(w_data_wght),
 
 			    .r_data_iact(r_data_iact),
-			    .r_data_psum(r_data_psum)
+			    .r_data_psum(r_data_psum),
+				.r_data_wght(r_data_wght)
 			);
 			
 			
@@ -86,6 +105,7 @@ module GLB_cluster_tb();
 	
 		write_en_iact[0] = 1;
 		write_en_psum[0] = 1;
+		write_en_wght[0] = 1;
 		
 		for(int i=0; i<16; i++) begin
 			w_addr_iact[0] = i;
@@ -94,18 +114,25 @@ module GLB_cluster_tb();
 			w_addr_psum[0] = i;
 			w_data_psum[0] = i;
 			
+			w_addr_wght[0] = i;
+			w_data_wght[0] = i*3;
+			
 			#20;
 		end
 		
 		write_en_iact[0] = 0;
 		write_en_psum[0] = 0;
-	
+		write_en_wght[0] = 0;
+		
 		for(int i=0; i<2; i++) begin
 			w_addr_iact[0] = i;
 			w_data_iact[0] = i*200;
 
 			w_addr_psum[0] = i;
 			w_data_psum[0] = i*200;
+			
+			w_addr_wght[0] = i;
+			w_data_wght[0] = i*200;			
 			
 			#20;
 		end
@@ -114,22 +141,27 @@ module GLB_cluster_tb();
 	
 		read_req_iact[0] = 1;
 		read_req_psum[0] = 1;
+		read_req_wght[0] = 1;
 		
-		for(int i=0; i<16; i++) begin
+		for(int i=0; i<16; i++  ) begin
 			r_addr_iact[0] = i;
 
 			r_addr_psum[0] = i;
 			
+			r_addr_wght[0] = i;
 			#20;
 		end
 	
 		read_req_iact[0] = 0;
 		read_req_psum[0] = 0;
+		read_req_wght[0] = 0;
 		
 		for(int i=0; i<2; i++) begin
 			r_addr_iact[0] = i;
 
 			r_addr_psum[0] = i;
+			
+			r_addr_wght[0] = i;
 			
 			#20;
 		end

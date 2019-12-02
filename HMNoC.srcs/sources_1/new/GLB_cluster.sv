@@ -25,26 +25,35 @@ module GLB_cluster
 			parameter DATA_BITWIDTH = 16,
 			parameter ADDR_BITWIDTH = 10,
 			parameter NUM_GLB_IACT = 1,
-			parameter NUM_GLB_PSUM = 1
+			parameter NUM_GLB_PSUM = 1,
+			parameter NUM_GLB_WGHT = 1
 			)
 		   ( input clk,
 			 input reset,
 			 
-			 input read_req_iact[NUM_GLB_IACT-1:0], read_req_psum[NUM_GLB_PSUM-1:0],
-			 input write_en_iact[NUM_GLB_IACT-1:0], write_en_psum[NUM_GLB_PSUM-1:0],
+			 input read_req_iact[NUM_GLB_IACT-1:0], 
+			 input read_req_psum[NUM_GLB_PSUM-1:0],
+			 input read_req_wght[NUM_GLB_WGHT-1:0],
+			 
+			 input write_en_iact[NUM_GLB_IACT-1:0], 
+			 input write_en_psum[NUM_GLB_PSUM-1:0],
+			 input write_en_wght[NUM_GLB_WGHT-1:0],
 			 
 			 input [ADDR_BITWIDTH-1 : 0] r_addr_iact[NUM_GLB_IACT-1:0],
 			 input [ADDR_BITWIDTH-1 : 0] r_addr_psum[NUM_GLB_PSUM-1:0],
+			 input [ADDR_BITWIDTH-1 : 0] r_addr_wght[NUM_GLB_WGHT-1:0],
 			 
 			 input [ADDR_BITWIDTH-1 : 0] w_addr_iact[NUM_GLB_IACT-1:0],
 			 input [ADDR_BITWIDTH-1 : 0] w_addr_psum[NUM_GLB_PSUM-1:0],
+			 input [ADDR_BITWIDTH-1 : 0] w_addr_wght[NUM_GLB_WGHT-1:0],
 			 
 			 input [DATA_BITWIDTH-1 : 0] w_data_iact[NUM_GLB_IACT-1:0],
 			 input [DATA_BITWIDTH-1 : 0] w_data_psum[NUM_GLB_PSUM-1:0],
+			 input [DATA_BITWIDTH-1 : 0] w_data_wght[NUM_GLB_WGHT-1:0],
 			 
 			 output logic [DATA_BITWIDTH-1 : 0] r_data_iact[NUM_GLB_IACT-1:0],
-			 output logic [DATA_BITWIDTH-1 : 0] r_data_psum[NUM_GLB_PSUM-1:0]
-			 
+			 output logic [DATA_BITWIDTH-1 : 0] r_data_psum[NUM_GLB_PSUM-1:0],
+			 output logic [DATA_BITWIDTH-1 : 0] r_data_wght[NUM_GLB_WGHT-1:0]
 			);
 			
 			//Instantiate iact global buffer
@@ -88,4 +97,23 @@ module GLB_cluster
 				end
 			endgenerate
 	
+			//Instantiate weight global buffer
+			generate
+			genvar k;
+			for(k=0; k<NUM_GLB_WGHT; k++) 
+				begin:glb_wght_gen
+					glb_weight #( .ADDR_BITWIDTH(ADDR_BITWIDTH),
+							.DATA_BITWIDTH(DATA_BITWIDTH)
+							) 
+					glb_weight_inst ( .clk(clk), 
+									.reset(reset), 
+									.read_req(read_req_wght[k]),
+									.write_en(write_en_wght[k]), 
+									.r_addr(r_addr_wght[k]), 
+									.w_data(w_data_wght[k]),
+									.r_data(r_data_wght[k]), 
+									.w_addr(w_addr_wght[k])
+									);
+				end
+			endgenerate
 endmodule
