@@ -56,7 +56,7 @@ module router_iact #( parameter DATA_BITWIDTH = 16,
 		logic [4:0] filt_count;
 		
 		always@(posedge clk) begin
-			$display("State: %s", state.name());
+//			$display("State: %s", state.name());
 			if(reset) begin
 				read_req_glb_iact <= 0;
 				r_addr_glb_iact <= 0;

@@ -56,8 +56,8 @@ module SPad #( parameter DATA_BITWIDTH = 16,
 	always@(posedge clk)
 		begin : WRITE
 		
-/*    		
-			$display("\t\t\t\t\t Current Status:\n \
+    		
+/* 			$display("\t\t\t\t\t Current Status:\n \
 				 \t mem[0]:%d", mem[0],
 				" | mem[1]:%d", mem[1],
 				" | mem[2]:%d", mem[2],
@@ -79,8 +79,8 @@ module SPad #( parameter DATA_BITWIDTH = 16,
 				" | psum:%d", mem[502],
 				" | psum:%d", mem[503],
 				" | psum:%d", mem[504]
-				);  
-				 */
+				);   */
+				 
 			if(write_en && !reset) begin
 				mem[w_addr] <= w_data;
 			end

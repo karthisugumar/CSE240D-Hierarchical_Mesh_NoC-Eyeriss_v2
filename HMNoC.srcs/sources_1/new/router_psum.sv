@@ -59,13 +59,15 @@ module router_psum #( parameter DATA_BITWIDTH = 16,
 		
 		logic [4:0] psum_count;
 		logic [DATA_BITWIDTH-1 : 0] pe_psum[0:kernel_size-1];
+		logic [2:0] iter;
 		
 		always@(posedge clk) begin
-			$display("State: %s", state.name());
+//			$display("State of router_psum: %s", state.name());
 			if(reset) begin
 				w_addr_glb_psum <= PSUM_LOAD_ADDR;
 				psum_count <= 0;
 				write_en_glb_psum <= 0;
+				iter <= 0;
 				state <= IDLE;
 			end else begin
 				case(state)
@@ -76,30 +78,41 @@ module router_psum #( parameter DATA_BITWIDTH = 16,
 						end else begin
 							psum_count <= 0;
 							write_en_glb_psum <= 0;
+							w_addr_glb_psum <= PSUM_LOAD_ADDR;
 							state <= IDLE;
 						end
 					end
 					
 					READ_PSUM:begin
 						pe_psum <= r_data_spad_psum;
-						$display("Psum read in router:%d",pe_psum[0:kernel_size-1]);
-						write_en_glb_psum <= 1;
+//						$display("Psum read in router:%d",pe_psum[0:kernel_size-1]);
 						psum_count <= 0;
-						w_addr_glb_psum <= PSUM_LOAD_ADDR;
 						state <= WRITE_GLB;
 					end
 					
 					WRITE_GLB:begin
-						if(pe_psum == (kernel_size-1)) begin
+						write_en_glb_psum <= 1;
+//						$display("Psum written to address %d; Iter is %d",w_addr_glb_psum, iter);
+						if(psum_count == (kernel_size-1)) begin
 							w_data_glb_psum <= pe_psum[psum_count];
 							psum_count <= 0;
 							w_addr_glb_psum <= w_addr_glb_psum + 1;
+							iter <= iter + 1;
 							state <= IDLE;
 						end else begin
 							w_data_glb_psum <= pe_psum[psum_count];
-							w_addr_glb_psum <= w_addr_glb_psum + 1;
 							psum_count <= psum_count + 1;
-							state <= WRITE_GLB;
+							
+							if(psum_count == (kernel_size-1)) begin
+								state <= IDLE;
+							end else if(psum_count == 0) begin
+								w_addr_glb_psum <= PSUM_LOAD_ADDR+iter*kernel_size;
+								state <= WRITE_GLB;
+							end else begin
+								w_addr_glb_psum <= w_addr_glb_psum + 1;
+								state <= WRITE_GLB;
+							end
+							
 						end
 					end
 				endcase

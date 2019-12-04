@@ -295,6 +295,8 @@ module router_cluster_tb();
 		$fclose(act_1); 
 		
 		
+		assign pe_out = pe_cluster_0.pe_out;
+		assign compute_done = pe_cluster_0.compute_done;
 		
 		#300;
 		load_spad_ctrl_wght = 1; #15;
