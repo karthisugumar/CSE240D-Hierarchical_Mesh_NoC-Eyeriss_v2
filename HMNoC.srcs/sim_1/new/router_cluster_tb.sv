@@ -257,7 +257,7 @@ module router_cluster_tb();
 		//0.1GHz
 	end
 	
-	integer kernel_1,act_1;
+	integer kernel_1,act_1,psum_1;
 	integer w_addr = 0;
 	int args;
 	
@@ -298,7 +298,7 @@ module router_cluster_tb();
 		assign pe_out = pe_cluster_0.pe_out;
 		assign compute_done = pe_cluster_0.compute_done;
 		
-		#300;
+		#50;
 		load_spad_ctrl_wght = 1; #15;
 		load_spad_ctrl_wght = 0;
 		
@@ -310,7 +310,7 @@ module router_cluster_tb();
 	
 		wait (load_done == 1);
 	
-		#100;
+		#40;
 		
 		start = 1; #25; 
 		$display("\n\nReading & Computing Begins.....\n\n");
@@ -347,6 +347,25 @@ module router_cluster_tb();
 			$display("\npsum from column %d is:%d",i+1,pe_out[i]);
 		end
 
+		
+		//Write Outputs to file
+		
+ 		#100;
+		read_req_psum = 1;
+		psum_1 = $fopen("./psum_3x3.txt","w");
+		if (psum_1)  $display("File was opened successfully : %0d", psum_1);
+		else     $display("File was NOT opened successfully : %0d", psum_1);
+		for(int p=0; p<kernel_size**2; p++) begin
+			r_addr_psum = p;
+//			$fwrite(psum_1,"%d\n",r_data_psum);
+			$fwrite(psum_1,"Hello\n");
+			$display("Writing value %0d from address %0d GLB_psum to output text file",r_data_psum,p);
+			#(clk_prd);
+		end
+		read_req_psum = 0;
+		$fclose(psum_1);
+		
+		
 	end
 	
 endmodule
