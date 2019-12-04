@@ -25,6 +25,9 @@ module router_cluster_tb();
 	parameter DATA_BITWIDTH = 16;
 	parameter ADDR_BITWIDTH = 10;
 	
+	parameter DATA_WIDTH = 16;
+    parameter ADDR_WIDTH = 9;
+	
 	// GLB Cluster parameters. This TestBench uses only 1 of each
     parameter NUM_GLB_IACT = 1;
     parameter NUM_GLB_PSUM = 1;
@@ -37,6 +40,32 @@ module router_cluster_tb();
 	parameter NUM_ROUTER_IACT = 1;
 	parameter NUM_ROUTER_WGHT = 1;
 			
+	parameter int kernel_size = 3;
+    parameter int act_size = 5;
+	
+	parameter int X_dim = 3;
+    parameter int Y_dim = 3;
+	
+	//Used inside PEs
+/* 	parameter W_READ_ADDR = 0;  
+    parameter A_READ_ADDR_PE = 100;
+    
+    parameter W_LOAD_ADDR = 0;  
+    parameter A_LOAD_ADDR_PE = 100;
+    
+    parameter PSUM_ADDR = 500; */
+	
+	parameter W_READ_ADDR = 0;  
+    parameter A_READ_ADDR = 0;
+    
+    parameter W_LOAD_ADDR = 0;  
+    parameter A_LOAD_ADDR = 0;
+	
+	parameter PSUM_READ_ADDR = 0;
+	parameter PSUM_LOAD_ADDR = 0;
+	
+	
+	
     logic clk;
     logic reset;
 
@@ -46,9 +75,13 @@ module router_cluster_tb();
 //	logic read_req_wght;
 	
     logic write_en_iact;
-	logic write_en_psum;
+//	logic write_en_psum;
 	logic write_en_wght;
 	
+			
+	logic load_spad_ctrl_wght;
+	logic load_spad_ctrl_iact;
+		
 //    logic [ADDR_BITWIDTH-1 : 0] r_addr_iact;
     logic [ADDR_BITWIDTH-1 : 0] r_addr_psum;
 //	logic [ADDR_BITWIDTH-1 : 0] r_addr_wght;
@@ -81,32 +114,33 @@ module router_cluster_tb();
 				.clk(clk), 
 				.reset(reset),
 				
-				.read_req_iact(router_iact_0.read_req_glb_iact),
-				.read_req_psum(read_req_psum),
-//				.read_req_wght(read_req_wght),
-				.read_req_wght(router_weight_0.read_req_glb_wght),
+				//Signals for reading from GLB
+				.read_req_iact(router_cluster.read_req_glb_iact),
+				.read_req_psum(read_req_psum), //Read by testbench/controller
+				.read_req_wght(router_cluster_0.read_req_glb_wght),
 				
-				.write_en_iact(write_en_iact),
-				.write_en_psum(write_en_psum),
-				.write_en_wght(write_en_wght),
+			    .r_data_iact(router_cluster_0.r_data_glb_iact),
+			    .r_data_psum(r_data_psum), //Read by testbench/controller
+				.r_data_wght(router_cluster_0.r_data_glb_wght),
 				
-				.r_addr_iact(router_iact_0.r_addr_glb_iact),
-			    .r_addr_psum(r_addr_psum),
-//				.r_addr_wght(r_addr_wght),
-				.r_addr_wght(router_weight_0.r_addr_glb_wght),
+				.r_addr_iact(router_cluster_0.r_addr_glb_iact),
+			    .r_addr_psum(r_addr_psum), //testbench for reading final psums
+				.r_addr_wght(router_cluster_0.r_addr_glb_wght),
 
-			    .w_addr_iact(w_addr_iact),
-			    .w_addr_psum(w_addr_psum),
-				.w_addr_wght(w_addr_wght),
+				
+				//Signals for writing to GLB
+			    .w_addr_iact(w_addr_iact), //testbench for writing
+			    .w_addr_psum(router_cluster_0.w_addr_glb_psum),
+				.w_addr_wght(w_addr_wght), //testbench for writing
+ 
+			    .w_data_iact(w_data_iact), //testbench for writing
+			    .w_data_psum(router_cluster_0.w_data_glb_psum),
+				.w_data_wght(w_data_wght), //testbench for writing
 
-			    .w_data_iact(w_data_iact),
-			    .w_data_psum(w_data_psum),
-				.w_data_wght(w_data_wght),
-
-			    .r_data_iact(router_iact_0.r_data_glb_iact),
-			    .r_data_psum(r_data_psum),
-//				.r_data_wght(r_data_wght)
-				.r_data_wght(router_weight_0.r_data_glb_wght)
+				.write_en_iact(write_en_iact), //testbench for writing
+				.write_en_psum(router_cluster_0.write_en_glb_psum),
+				.write_en_wght(write_en_wght) //testbench for writing
+			
 			);
 
 			
@@ -138,47 +172,42 @@ module router_cluster_tb();
 					.clk(clk),
 					.reset(reset),
 					
+					//Signals for activation router
+					.r_data_glb_iact(GLB_cluster_0.r_data_iact),
+					.r_addr_glb_iact(GLB_cluster_0.r_addr_iact),
+					.read_req_glb_iact(GLB_cluster_0.read_req_iact),
+
+					.w_data_spad_iact(pe_cluster_0.act_in),
+					.load_en_spad_iact(pe_cluster_0.load_en_act),
+					
+					.load_spad_ctrl_iact(load_spad_ctrl_iact), //TestBench/Controller
+					
+					
 					//Signals for weight router
-					.r_data_glb_iact(GLB_cluster_0.r_data_wght),
+					.r_data_glb_wght(GLB_cluster_0.r_data_wght),
 					.r_addr_glb_wght(GLB_cluster_0.r_addr_wght),
 					.read_req_glb_wght(GLB_cluster_0.read_req_wght),
+					
+					.w_data_spad_wght(pe_cluster_0.filt_in),
+					.load_en_spad_wght(pe_cluster_0.load_en_wght),
 
-					w_data_spad(w_data_spad_wght),
-					load_en_spad_wght(load_en_spad_wght),
-					
-					load_spad_ctrl_iact(load_spad_ctrl_iact),
-					
-					
-					//Signals for activation router
-					.r_data_glb_wght(r_data_glb_wght),
-					
-					.r_addr_glb_wght(r_addr_glb_wght),
-					.read_req_glb_wght(read_req_glb_wght),
-					
-					.w_data_spad_wght(w_data_spad_wght),
-					.load_en_spad_wght(load_en_spad_wght),
-					//Input from control unit to load weight
-					.load_spad_ctrl_wght(load_spad_ctrl_wght),
+					.load_spad_ctrl_wght(load_spad_ctrl_wght), //TestBench/Controller
 
 					
 					//Signals for psum router
-					.r_data_spad_psum(r_data_spad_psum),
+					.r_data_spad_psum(pe_cluster_0.pe_out),
 					
-					.w_addr_glb_psum(w_addr_glb_psum),
-					.write_en_glb_psum(write_en_glb_psum),
-					.w_data_glb_psum(w_data_glb_psum),
+					.w_addr_glb_psum(GLB_cluster_0.w_addr_psum),
+					.write_en_glb_psum(GLB_cluster_0.write_en_psum),
+					.w_data_glb_psum(GLB_cluster_0.w_data_psum),
 					
-					//Input from control unit to load weights to spad
-					.write_psum_ctrl(write_psum_ctrl)
+					.write_psum_ctrl(pe_cluster_0.compute_done) //Connected to compute done of PE
 					);
 	
 
 //Declarations for PE_cluster
 				
-	parameter DATA_WIDTH = 16;
-    parameter ADDR_WIDTH = 9;
-	parameter int X_dim = 3;
-    parameter int Y_dim = 3;
+
 	
 	logic [DATA_WIDTH-1:0] act_in;
     logic [DATA_WIDTH-1:0] filt_in;
@@ -188,7 +217,7 @@ module router_cluster_tb();
 
     logic [DATA_WIDTH-1:0] pe_out[X_dim-1:0];
   
-	logic load_done;
+	logic load_done; //TestBench/Controller
 	
 //PE_cluster Instantiation
 	PE_cluster #(
@@ -203,21 +232,19 @@ module router_cluster_tb();
     			)
 	pe_cluster_0
     			(
-					.clk(clk),
-				    .reset(reset),
-				    .act_in(w_data_spad_iact),
-//				    .filt_in(filt_in),
-					.filt_in(w_data_spad_wght),
-//				    .load_en(load_en),
-					.load_en_wght(load_en_spad_wght),
-					.load_en_act(load_en_spad_iact),
-					.start(start),
-                    .pe_out(router_psum_0.r_data_spad_psum),
-					.compute_done(compute_done),
-					.load_done(load_done)
+					.clk(clk), 	   //TestBench/Controller
+				    .reset(reset), //TestBench/Controller
+					.start(start), //TestBench/Controller
 					
-		//extra
-//					.psum_out(psum_out)
+				    .act_in(router_cluster_0.w_data_spad_iact),
+					.filt_in(router_cluster_0.w_data_spad_wght),
+					
+					.load_en_wght(router_cluster_0.load_en_spad_wght),
+					.load_en_act(router_cluster_0.load_en_spad_iact),
+					
+                    .pe_out(router_cluster_0.r_data_spad_psum),
+					.compute_done(router_cluster_0.write_psum_ctrl),
+					.load_done(load_done)
     			);
 				
 

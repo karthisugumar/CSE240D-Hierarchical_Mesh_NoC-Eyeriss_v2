@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module router_cluster#( 
+module router_cluster#(
+
 			parameter DATA_BITWIDTH = 16,
 			parameter ADDR_BITWIDTH_GLB = 10,
 			parameter ADDR_BITWIDTH_SPAD = 9,
@@ -57,12 +58,12 @@ module router_cluster#(
 			 
 			 //Signals for Weight Router
 			 input [DATA_BITWIDTH-1 : 0] r_data_glb_wght,
-			 input load_spad_ctrl_iact,
+			 input load_spad_ctrl_wght,
 			 
 			 output logic [ADDR_BITWIDTH_GLB-1 : 0] r_addr_glb_wght,
 			 output logic read_req_glb_wght,
 
-			 output logic [DATA_BITWIDTH-1 : 0] w_data_spad_iact,
+			 output logic [DATA_BITWIDTH-1 : 0] w_data_spad_wght,
 			 output logic load_en_spad_wght,
 			 
 			 
@@ -87,8 +88,8 @@ module router_cluster#(
 									.kernel_size(kernel_size),
 									.act_size(act_size),
 									
-									.A_READ_ADDR(A_READ_ADDR_IACT), 
-									.A_LOAD_ADDR(A_LOAD_ADDR_IACT)
+									.A_READ_ADDR(A_READ_ADDR), 
+									.A_LOAD_ADDR(A_LOAD_ADDR)
 								)
 					router_iact_0
 								(	.clk(clk),
@@ -110,8 +111,8 @@ module router_cluster#(
 			
 						//Instantiate weight router
 			generate
-			genvar i;
-			for(i=0; i<NUM_ROUTER_WEIGHT; i++) 
+			genvar k;
+			for(k=0; k<NUM_ROUTER_WGHT; k++) 
 				begin:router_weight_gen
 					router_weight #(.DATA_BITWIDTH(DATA_BITWIDTH),
 									.ADDR_BITWIDTH_GLB(ADDR_BITWIDTH_GLB),
@@ -120,8 +121,8 @@ module router_cluster#(
 									.kernel_size(kernel_size),
 									.act_size(act_size),
 									
-									.W_READ_ADDR(W_READ_ADDR_WGHT), 
-									.W_LOAD_ADDR(W_LOAD_ADDR_WGHT)
+									.W_READ_ADDR(W_READ_ADDR), 
+									.W_LOAD_ADDR(W_LOAD_ADDR)
 								)
 					router_weight_0
 								(	.clk(clk),
@@ -143,8 +144,8 @@ module router_cluster#(
 			
 						//Instantiate iact router
 			generate
-			genvar i;
-			for(i=0; i<NUM_ROUTER_PSUM; i++) 
+			genvar j;
+			for(j=0; j<NUM_ROUTER_PSUM; j++) 
 				begin:router_psum_gen
 					router_psum #(.DATA_BITWIDTH(DATA_BITWIDTH),
 									.ADDR_BITWIDTH_GLB(ADDR_BITWIDTH_GLB),
