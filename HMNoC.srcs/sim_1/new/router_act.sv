@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/01/2019 03:50:08 PM
+// Create Date: 12/02/2019 03:12:11 PM
 // Design Name: 
-// Module Name: router_weight
+// Module Name: router_act
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module router_weight #( parameter DATA_BITWIDTH = 16,
+module router_iact #( parameter DATA_BITWIDTH = 16,
 						parameter ADDR_BITWIDTH_GLB = 10,
 						parameter ADDR_BITWIDTH_SPAD = 9,
 						
@@ -31,7 +31,10 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 						
 						parameter W_READ_ADDR = 0, 
                         
-                        parameter W_LOAD_ADDR = 0
+                        parameter W_LOAD_ADDR = 0,
+						
+						parameter PSUM_READ_ADDR = 500,
+						parameter PSUM_LOAD_ADDR = 0
 					)
 					
 					(	input clk,
@@ -73,13 +76,13 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 							state <= READ_GLB;
 						end else begin
 							read_req_glb_wght = 0;
-							load_en_spad <= 0;
+							load_en_spad = 0;
 							state <= IDLE;
 						end
 					end
 					
 					READ_GLB:begin
-						
+						load_en_spad <= 1;
 						filt_count <= filt_count + 1;
 						r_addr_glb_wght <= r_addr_glb_wght + 1;
 						w_data_spad <= r_data_glb_wght;
@@ -87,7 +90,6 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 					end
 					
 					WRITE_SPAD:begin
-						load_en_spad <= 1;
 						if(filt_count == (kernel_size**2)) begin
 							w_data_spad <= r_data_glb_wght;
 							filt_count <= 0;
@@ -106,3 +108,4 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 		end
  
 endmodule
+

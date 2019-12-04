@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/01/2019 03:50:08 PM
+// Create Date: 12/02/2019 03:12:11 PM
 // Design Name: 
-// Module Name: router_weight
+// Module Name: router_act
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module router_weight #( parameter DATA_BITWIDTH = 16,
+module router_iact #( parameter DATA_BITWIDTH = 16,
 						parameter ADDR_BITWIDTH_GLB = 10,
 						parameter ADDR_BITWIDTH_SPAD = 9,
 						
@@ -29,18 +29,17 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
                         parameter int kernel_size = 3,
                         parameter int act_size = 5,
 						
-						parameter W_READ_ADDR = 0, 
-                        
-                        parameter W_LOAD_ADDR = 0
+						parameter A_READ_ADDR =100, 
+                        parameter A_LOAD_ADDR = 0
 					)
 					
 					(	input clk,
 						input reset,
 						
 						//for reading glb
-						input [DATA_BITWIDTH-1 : 0] r_data_glb_wght,
-						output logic [ADDR_BITWIDTH_GLB-1 : 0] r_addr_glb_wght,
-						output logic read_req_glb_wght,
+						input [DATA_BITWIDTH-1 : 0] r_data_glb_iact,
+						output logic [ADDR_BITWIDTH_GLB-1 : 0] r_addr_glb_iact,
+						output logic read_req_glb_iact,
 						
 						//for writing to spad
 						output logic [DATA_BITWIDTH-1 : 0] w_data_spad,
@@ -59,8 +58,8 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 		always@(posedge clk) begin
 			$display("State: %s", state.name());
 			if(reset) begin
-				read_req_glb_wght <= 0;
-				r_addr_glb_wght <= 0;
+				read_req_glb_iact <= 0;
+				r_addr_glb_iact <= 0;
 				load_en_spad <= 0;
 				filt_count <= 0;
 				state <= IDLE;
@@ -68,12 +67,12 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 				case(state)
 					IDLE:begin
 						if(load_spad_ctrl) begin
-							read_req_glb_wght <= 1;
-							r_addr_glb_wght <= W_READ_ADDR;
+							read_req_glb_iact <= 1;
+							r_addr_glb_iact <= A_READ_ADDR;
 							state <= READ_GLB;
 						end else begin
-							read_req_glb_wght = 0;
-							load_en_spad <= 0;
+							read_req_glb_iact = 0;
+							load_en_spad = 0;
 							state <= IDLE;
 						end
 					end
@@ -81,23 +80,23 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 					READ_GLB:begin
 						
 						filt_count <= filt_count + 1;
-						r_addr_glb_wght <= r_addr_glb_wght + 1;
-						w_data_spad <= r_data_glb_wght;
+						r_addr_glb_iact <= r_addr_glb_iact + 1;
+						w_data_spad <= r_data_glb_iact;
 						state <= WRITE_SPAD;
 					end
 					
 					WRITE_SPAD:begin
 						load_en_spad <= 1;
-						if(filt_count == (kernel_size**2)) begin
-							w_data_spad <= r_data_glb_wght;
+						if(filt_count == (act_size**2)) begin
+							w_data_spad <= r_data_glb_iact;
 							filt_count <= 0;
-							r_addr_glb_wght <= W_READ_ADDR;
+							r_addr_glb_iact <= A_READ_ADDR;
 							
 							state <= IDLE;
 						end else begin
-							w_data_spad <= r_data_glb_wght;
+							w_data_spad <= r_data_glb_iact;
 							filt_count <= filt_count + 1;
-							r_addr_glb_wght <= r_addr_glb_wght + 1;
+							r_addr_glb_iact <= r_addr_glb_iact + 1;
 							state <= WRITE_SPAD;
 						end
 					end
@@ -106,3 +105,4 @@ module router_weight #( parameter DATA_BITWIDTH = 16,
 		end
  
 endmodule
+

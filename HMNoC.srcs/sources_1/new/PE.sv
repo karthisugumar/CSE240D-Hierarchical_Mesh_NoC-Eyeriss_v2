@@ -98,7 +98,7 @@ module PE #( parameter DATA_WIDTH = 16,
 	
 	// FSM for PE
 	always@(posedge clk) begin
-		$display("State: %s", state.name());
+//		$display("State: %s", state.name());
 		if(reset) begin
 			//Initialize registers
 			filt_count <= 0;
@@ -234,8 +234,8 @@ module PE #( parameter DATA_WIDTH = 16,
 				end
 				
 				LOAD_A:begin
-				$display("Act write: %d to address: %d", act_in,  w_addr);
-				$display("Write Enable: %d", write_en);			
+//				$display("Act write: %d to address: %d", act_in,  w_addr);
+//				$display("Write Enable: %d", write_en);			
 					if(filt_count == (act_size**2-1)) begin
 						write_en <= 0;
 						read_en <= 1;
