@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="PE_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="PE_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="951000001fs"></ZoomEndTime>
+      <Cursor1Time time="2000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="172"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/PE_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/act_in" type="array">
+      <obj_property name="ElementShortName">act_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">act_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/filt_in" type="array">
+      <obj_property name="ElementShortName">filt_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">filt_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/pe_out" type="array">
+      <obj_property name="ElementShortName">pe_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">pe_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/load_en" type="logic">
+      <obj_property name="ElementShortName">load_en</obj_property>
+      <obj_property name="ObjectShortName">load_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/W_READ_ADDR" type="array">
+      <obj_property name="ElementShortName">W_READ_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">W_READ_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/A_READ_ADDR" type="array">
+      <obj_property name="ElementShortName">A_READ_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_READ_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/W_LOAD_ADDR" type="array">
+      <obj_property name="ElementShortName">W_LOAD_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">W_LOAD_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/A_LOAD_ADDR" type="array">
+      <obj_property name="ElementShortName">A_LOAD_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_LOAD_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/PSUM_ADDR" type="array">
+      <obj_property name="ElementShortName">PSUM_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PSUM_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/kernel_size" type="array">
+      <obj_property name="ElementShortName">kernel_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">kernel_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PE_tb/act_size" type="array">
+      <obj_property name="ElementShortName">act_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">act_size[31:0]</obj_property>
+   </wvobject>
+</wave_config>

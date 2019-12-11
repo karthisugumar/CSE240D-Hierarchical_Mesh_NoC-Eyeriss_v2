@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="HMNoC_cluster_west_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="HMNoC_cluster_west_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="821339388fs"></ZoomEndTime>
+      <Cursor1Time time="700000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="226"></NameColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="93" />
+   <wvobject fp_name="/HMNoC_cluster_west_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/load_done" type="logic">
+      <obj_property name="ElementShortName">load_done</obj_property>
+      <obj_property name="ObjectShortName">load_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/load_en_wght" type="logic">
+      <obj_property name="ElementShortName">load_en_wght</obj_property>
+      <obj_property name="ObjectShortName">load_en_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/load_en_act" type="logic">
+      <obj_property name="ElementShortName">load_en_act</obj_property>
+      <obj_property name="ObjectShortName">load_en_act</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/pe_out" type="array">
+      <obj_property name="ElementShortName">pe_out[2:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">pe_out[2:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/compute_done" type="logic">
+      <obj_property name="ElementShortName">compute_done</obj_property>
+      <obj_property name="ObjectShortName">compute_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/read_req_psum" type="logic">
+      <obj_property name="ElementShortName">read_req_psum</obj_property>
+      <obj_property name="ObjectShortName">read_req_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/write_en_iact" type="logic">
+      <obj_property name="ElementShortName">write_en_iact</obj_property>
+      <obj_property name="ObjectShortName">write_en_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/write_en_wght" type="logic">
+      <obj_property name="ElementShortName">write_en_wght</obj_property>
+      <obj_property name="ObjectShortName">write_en_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/w_data_iact" type="array">
+      <obj_property name="ElementShortName">w_data_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_data_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/w_addr_iact" type="array">
+      <obj_property name="ElementShortName">w_addr_iact[8:0]</obj_property>
+      <obj_property name="ObjectShortName">w_addr_iact[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/w_data_wght" type="array">
+      <obj_property name="ElementShortName">w_data_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_data_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/w_addr_wght" type="array">
+      <obj_property name="ElementShortName">w_addr_wght[8:0]</obj_property>
+      <obj_property name="ObjectShortName">w_addr_wght[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/r_data_psum" type="array">
+      <obj_property name="ElementShortName">r_data_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_data_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/r_addr_psum" type="array">
+      <obj_property name="ElementShortName">r_addr_psum[8:0]</obj_property>
+      <obj_property name="ObjectShortName">r_addr_psum[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/router_mode_wght" type="array">
+      <obj_property name="ElementShortName">router_mode_wght[3:0]</obj_property>
+      <obj_property name="ObjectShortName">router_mode_wght[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_i_wght" type="array">
+      <obj_property name="ElementShortName">north_data_i_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_i_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_i_wght" type="logic">
+      <obj_property name="ElementShortName">north_enable_i_wght</obj_property>
+      <obj_property name="ObjectShortName">north_enable_i_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_o_wght" type="array">
+      <obj_property name="ElementShortName">north_data_o_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_o_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_o_wght" type="logic">
+      <obj_property name="ElementShortName">north_enable_o_wght</obj_property>
+      <obj_property name="ObjectShortName">north_enable_o_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_i_wght" type="array">
+      <obj_property name="ElementShortName">south_data_i_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_i_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_i_wght" type="logic">
+      <obj_property name="ElementShortName">south_enable_i_wght</obj_property>
+      <obj_property name="ObjectShortName">south_enable_i_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_o_wght" type="array">
+      <obj_property name="ElementShortName">south_data_o_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_o_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_o_wght" type="logic">
+      <obj_property name="ElementShortName">south_enable_o_wght</obj_property>
+      <obj_property name="ObjectShortName">south_enable_o_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_i_wght" type="logic">
+      <obj_property name="ElementShortName">west_enable_i_wght</obj_property>
+      <obj_property name="ObjectShortName">west_enable_i_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_o_wght" type="logic">
+      <obj_property name="ElementShortName">west_enable_o_wght</obj_property>
+      <obj_property name="ObjectShortName">west_enable_o_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_i_wght" type="array">
+      <obj_property name="ElementShortName">east_data_i_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_i_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_i_wght" type="logic">
+      <obj_property name="ElementShortName">east_enable_i_wght</obj_property>
+      <obj_property name="ObjectShortName">east_enable_i_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_o_wght" type="array">
+      <obj_property name="ElementShortName">east_data_o_wght[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_o_wght[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_o_wght" type="logic">
+      <obj_property name="ElementShortName">east_enable_o_wght</obj_property>
+      <obj_property name="ObjectShortName">east_enable_o_wght</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/router_mode_iact" type="array">
+      <obj_property name="ElementShortName">router_mode_iact[3:0]</obj_property>
+      <obj_property name="ObjectShortName">router_mode_iact[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_i_iact" type="array">
+      <obj_property name="ElementShortName">north_data_i_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_i_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_i_iact" type="logic">
+      <obj_property name="ElementShortName">north_enable_i_iact</obj_property>
+      <obj_property name="ObjectShortName">north_enable_i_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_o_iact" type="array">
+      <obj_property name="ElementShortName">north_data_o_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_o_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_o_iact" type="logic">
+      <obj_property name="ElementShortName">north_enable_o_iact</obj_property>
+      <obj_property name="ObjectShortName">north_enable_o_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_i_iact" type="array">
+      <obj_property name="ElementShortName">south_data_i_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_i_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_i_iact" type="logic">
+      <obj_property name="ElementShortName">south_enable_i_iact</obj_property>
+      <obj_property name="ObjectShortName">south_enable_i_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_o_iact" type="array">
+      <obj_property name="ElementShortName">south_data_o_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_o_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_o_iact" type="logic">
+      <obj_property name="ElementShortName">south_enable_o_iact</obj_property>
+      <obj_property name="ObjectShortName">south_enable_o_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_i_iact" type="logic">
+      <obj_property name="ElementShortName">west_enable_i_iact</obj_property>
+      <obj_property name="ObjectShortName">west_enable_i_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_o_iact" type="logic">
+      <obj_property name="ElementShortName">west_enable_o_iact</obj_property>
+      <obj_property name="ObjectShortName">west_enable_o_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_i_iact" type="array">
+      <obj_property name="ElementShortName">east_data_i_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_i_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_i_iact" type="logic">
+      <obj_property name="ElementShortName">east_enable_i_iact</obj_property>
+      <obj_property name="ObjectShortName">east_enable_i_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_o_iact" type="array">
+      <obj_property name="ElementShortName">east_data_o_iact[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_o_iact[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_o_iact" type="logic">
+      <obj_property name="ElementShortName">east_enable_o_iact</obj_property>
+      <obj_property name="ObjectShortName">east_enable_o_iact</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/router_mode_psum" type="array">
+      <obj_property name="ElementShortName">router_mode_psum[3:0]</obj_property>
+      <obj_property name="ObjectShortName">router_mode_psum[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_i_psum" type="array">
+      <obj_property name="ElementShortName">north_data_i_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_i_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_i_psum" type="logic">
+      <obj_property name="ElementShortName">north_enable_i_psum</obj_property>
+      <obj_property name="ObjectShortName">north_enable_i_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_data_o_psum" type="array">
+      <obj_property name="ElementShortName">north_data_o_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">north_data_o_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/north_enable_o_psum" type="logic">
+      <obj_property name="ElementShortName">north_enable_o_psum</obj_property>
+      <obj_property name="ObjectShortName">north_enable_o_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_i_psum" type="array">
+      <obj_property name="ElementShortName">south_data_i_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_i_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_i_psum" type="logic">
+      <obj_property name="ElementShortName">south_enable_i_psum</obj_property>
+      <obj_property name="ObjectShortName">south_enable_i_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_data_o_psum" type="array">
+      <obj_property name="ElementShortName">south_data_o_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">south_data_o_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/south_enable_o_psum" type="logic">
+      <obj_property name="ElementShortName">south_enable_o_psum</obj_property>
+      <obj_property name="ObjectShortName">south_enable_o_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_data_i_psum" type="array">
+      <obj_property name="ElementShortName">west_data_i_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">west_data_i_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_i_psum" type="logic">
+      <obj_property name="ElementShortName">west_enable_i_psum</obj_property>
+      <obj_property name="ObjectShortName">west_enable_i_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_data_o_psum" type="array">
+      <obj_property name="ElementShortName">west_data_o_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">west_data_o_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/west_enable_o_psum" type="logic">
+      <obj_property name="ElementShortName">west_enable_o_psum</obj_property>
+      <obj_property name="ObjectShortName">west_enable_o_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_i_psum" type="array">
+      <obj_property name="ElementShortName">east_data_i_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_i_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_i_psum" type="logic">
+      <obj_property name="ElementShortName">east_enable_i_psum</obj_property>
+      <obj_property name="ObjectShortName">east_enable_i_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_data_o_psum" type="array">
+      <obj_property name="ElementShortName">east_data_o_psum[15:0]</obj_property>
+      <obj_property name="ObjectShortName">east_data_o_psum[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/east_enable_o_psum" type="logic">
+      <obj_property name="ElementShortName">east_enable_o_psum</obj_property>
+      <obj_property name="ObjectShortName">east_enable_o_psum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/clk_prd" type="array">
+      <obj_property name="ElementShortName">clk_prd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">clk_prd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/kernel_1" type="array">
+      <obj_property name="ElementShortName">kernel_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">kernel_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/act_1" type="array">
+      <obj_property name="ElementShortName">act_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">act_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/psum_1" type="array">
+      <obj_property name="ElementShortName">psum_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">psum_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/w_addr" type="array">
+      <obj_property name="ElementShortName">w_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">w_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/args" type="array">
+      <obj_property name="ElementShortName">args[31:0]</obj_property>
+      <obj_property name="ObjectShortName">args[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/cluster_out_1" type="array">
+      <obj_property name="ElementShortName">cluster_out_1[0:8][15:0]</obj_property>
+      <obj_property name="ObjectShortName">cluster_out_1[0:8][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/DATA_BITWIDTH" type="array">
+      <obj_property name="ElementShortName">DATA_BITWIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_BITWIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/ADDR_BITWIDTH" type="array">
+      <obj_property name="ElementShortName">ADDR_BITWIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_BITWIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_GLB_IACT" type="array">
+      <obj_property name="ElementShortName">NUM_GLB_IACT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_GLB_IACT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_GLB_PSUM" type="array">
+      <obj_property name="ElementShortName">NUM_GLB_PSUM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_GLB_PSUM[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_GLB_WGHT" type="array">
+      <obj_property name="ElementShortName">NUM_GLB_WGHT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_GLB_WGHT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/ADDR_BITWIDTH_GLB" type="array">
+      <obj_property name="ElementShortName">ADDR_BITWIDTH_GLB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_BITWIDTH_GLB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/ADDR_BITWIDTH_SPAD" type="array">
+      <obj_property name="ElementShortName">ADDR_BITWIDTH_SPAD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_BITWIDTH_SPAD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_ROUTER_PSUM" type="array">
+      <obj_property name="ElementShortName">NUM_ROUTER_PSUM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_ROUTER_PSUM[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_ROUTER_IACT" type="array">
+      <obj_property name="ElementShortName">NUM_ROUTER_IACT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_ROUTER_IACT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/NUM_ROUTER_WGHT" type="array">
+      <obj_property name="ElementShortName">NUM_ROUTER_WGHT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_ROUTER_WGHT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/kernel_size" type="array">
+      <obj_property name="ElementShortName">kernel_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">kernel_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/act_size" type="array">
+      <obj_property name="ElementShortName">act_size[31:0]</obj_property>
+      <obj_property name="ObjectShortName">act_size[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/X_dim" type="array">
+      <obj_property name="ElementShortName">X_dim[31:0]</obj_property>
+      <obj_property name="ObjectShortName">X_dim[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/Y_dim" type="array">
+      <obj_property name="ElementShortName">Y_dim[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Y_dim[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/W_READ_ADDR" type="array">
+      <obj_property name="ElementShortName">W_READ_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">W_READ_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/A_READ_ADDR" type="array">
+      <obj_property name="ElementShortName">A_READ_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_READ_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/W_LOAD_ADDR" type="array">
+      <obj_property name="ElementShortName">W_LOAD_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">W_LOAD_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/A_LOAD_ADDR" type="array">
+      <obj_property name="ElementShortName">A_LOAD_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A_LOAD_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/PSUM_READ_ADDR" type="array">
+      <obj_property name="ElementShortName">PSUM_READ_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PSUM_READ_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/HMNoC_cluster_west_tb/PSUM_LOAD_ADDR" type="array">
+      <obj_property name="ElementShortName">PSUM_LOAD_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PSUM_LOAD_ADDR[31:0]</obj_property>
+   </wvobject>
+</wave_config>

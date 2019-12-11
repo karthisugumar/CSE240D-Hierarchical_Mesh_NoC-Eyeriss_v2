@@ -1,0 +1,186 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date              : Wed Dec  4 10:53:45 2019
+| Host              : Karthi running 64-bit major release  (build 9200)
+| Command           : check_timing -verbose -name timing_1 -file {D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/timing_report.txt}
+| Design            : HMNoC_cluster
+| Device            : xczu7ev-ffvf1517
+| Speed File        : -1LV  PRODUCTION 1.23 10-29-2018
+| Temperature Grade : I
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 69 input ports with no input delay specified. (HIGH)
+
+load_spad_ctrl_iact
+load_spad_ctrl_wght
+r_addr_psum[0]
+r_addr_psum[1]
+r_addr_psum[2]
+r_addr_psum[3]
+r_addr_psum[4]
+r_addr_psum[5]
+r_addr_psum[6]
+r_addr_psum[7]
+r_addr_psum[8]
+r_addr_psum[9]
+read_req_psum
+reset
+start
+w_addr_iact[0]
+w_addr_iact[1]
+w_addr_iact[2]
+w_addr_iact[3]
+w_addr_iact[4]
+w_addr_iact[5]
+w_addr_iact[6]
+w_addr_iact[7]
+w_addr_iact[8]
+w_addr_iact[9]
+w_addr_wght[0]
+w_addr_wght[1]
+w_addr_wght[2]
+w_addr_wght[3]
+w_addr_wght[4]
+w_addr_wght[5]
+w_addr_wght[6]
+w_addr_wght[7]
+w_addr_wght[8]
+w_addr_wght[9]
+w_data_iact[0]
+w_data_iact[10]
+w_data_iact[11]
+w_data_iact[12]
+w_data_iact[13]
+w_data_iact[14]
+w_data_iact[15]
+w_data_iact[1]
+w_data_iact[2]
+w_data_iact[3]
+w_data_iact[4]
+w_data_iact[5]
+w_data_iact[6]
+w_data_iact[7]
+w_data_iact[8]
+w_data_iact[9]
+w_data_wght[0]
+w_data_wght[10]
+w_data_wght[11]
+w_data_wght[12]
+w_data_wght[13]
+w_data_wght[14]
+w_data_wght[15]
+w_data_wght[1]
+w_data_wght[2]
+w_data_wght[3]
+w_data_wght[4]
+w_data_wght[5]
+w_data_wght[6]
+w_data_wght[7]
+w_data_wght[8]
+w_data_wght[9]
+write_en_iact
+write_en_wght
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 17 ports with no output delay specified. (HIGH)
+
+load_done
+r_data_psum[0]
+r_data_psum[10]
+r_data_psum[11]
+r_data_psum[12]
+r_data_psum[13]
+r_data_psum[14]
+r_data_psum[15]
+r_data_psum[1]
+r_data_psum[2]
+r_data_psum[3]
+r_data_psum[4]
+r_data_psum[5]
+r_data_psum[6]
+r_data_psum[7]
+r_data_psum[8]
+r_data_psum[9]
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
