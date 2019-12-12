@@ -114,6 +114,10 @@ module router
 				
 				NORTH:begin
 					north_data_o = data_out;
+					south_data_o = 'X;
+					east_data_o = 'X;
+					west_data_o = 'X;
+					
 					north_enable_o = 1;
 					south_enable_o = 0;
 					west_enable_o = 0;
@@ -122,6 +126,10 @@ module router
 				
 				SOUTH:begin
 					south_data_o = data_out;
+					north_data_o = 'X;
+					east_data_o = 'X;
+					west_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 1;
 					west_enable_o = 0;
@@ -130,6 +138,10 @@ module router
 				
 				WEST:begin
 					west_data_o = data_out;
+					south_data_o = 'X;
+					east_data_o = 'X;
+					north_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 0;
 					west_enable_o = 1;
@@ -138,6 +150,10 @@ module router
 				
 				EAST:begin
 					east_data_o = data_out;
+					south_data_o = 'X;
+					north_data_o = 'X;
+					west_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 0;
 					west_enable_o = 0;
@@ -149,6 +165,9 @@ module router
 				EASTNORTH:begin
 					east_data_o = data_out;
 					north_data_o = data_out;
+					south_data_o = 'X;
+					west_data_o = 'X;
+					
 					north_enable_o = 1;
 					south_enable_o = 0;
 					west_enable_o = 0;
@@ -158,6 +177,9 @@ module router
 				EASTSOUTH:begin
 					east_data_o = data_out;
 					south_data_o = data_out;
+					north_data_o = 'X;
+					west_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 1;
 					west_enable_o = 0;
@@ -167,6 +189,9 @@ module router
 				EASTWEST:begin
 					east_data_o = data_out;
 					west_data_o = data_out;
+					south_data_o = 'X;
+					north_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 0;
 					west_enable_o = 1;
@@ -177,6 +202,9 @@ module router
 				WESTNORTH:begin
 					west_data_o = data_out;
 					north_data_o = data_out;
+					south_data_o = 'X;
+					east_data_o = 'X;
+					
 					north_enable_o = 1;
 					south_enable_o = 0;
 					west_enable_o = 1;
@@ -186,6 +214,9 @@ module router
 				WESTSOUTH:begin
 					west_data_o = data_out;
 					south_data_o = data_out;
+					north_data_o = 'X;
+					east_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 1;
 					west_enable_o = 1;
@@ -195,10 +226,25 @@ module router
 				WESTEAST:begin
 					west_data_o = data_out;
 					east_data_o = data_out;
+					south_data_o = 'X;
+					north_data_o = 'X;
+					
 					north_enable_o = 0;
 					south_enable_o = 0;
 					west_enable_o = 1;
 					east_enable_o = 1;
+				end
+				
+				default: begin
+					north_data_o = 'X;
+					east_data_o = 'X;
+					south_data_o = 'X;
+					west_data_o = 'X;
+					
+					north_enable_o = 0;
+					south_enable_o = 0;
+					west_enable_o = 0;
+					east_enable_o = 0;
 				end
 			endcase
 		end
