@@ -1,0 +1,1449 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri Dec 13 10:48:13 2019
+# Process ID: 19164
+# Current directory: D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.runs/synth_1
+# Command line: vivado.exe -log HMNoC_cluster.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source HMNoC_cluster.tcl
+# Log file: D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.runs/synth_1/HMNoC_cluster.vds
+# Journal file: D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source HMNoC_cluster.tcl -notrace
+Command: synth_design -top HMNoC_cluster -part xczu7ev-ffvf1517-1LV-i
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu7ev'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu7ev'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 17176 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 362.254 ; gain = 80.500
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'HMNoC_cluster' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 10 - type: integer 
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter NUM_GLB_IACT bound to: 1 - type: integer 
+	Parameter NUM_GLB_PSUM bound to: 1 - type: integer 
+	Parameter NUM_GLB_WGHT bound to: 1 - type: integer 
+	Parameter ADDR_BITWIDTH_GLB bound to: 10 - type: integer 
+	Parameter ADDR_BITWIDTH_SPAD bound to: 9 - type: integer 
+	Parameter NUM_ROUTER_PSUM bound to: 1 - type: integer 
+	Parameter NUM_ROUTER_IACT bound to: 1 - type: integer 
+	Parameter NUM_ROUTER_WGHT bound to: 1 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+	Parameter X_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter Y_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_READ_ADDR bound to: 0 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter PSUM_READ_ADDR bound to: 0 - type: integer 
+	Parameter PSUM_LOAD_ADDR bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'GLB_cluster' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/GLB_cluster.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 10 - type: integer 
+	Parameter NUM_GLB_IACT bound to: 1 - type: integer 
+	Parameter NUM_GLB_PSUM bound to: 1 - type: integer 
+	Parameter NUM_GLB_WGHT bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'glb_iact' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_iact.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'glb_iact' (1#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_iact.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'glb_psum' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_psum.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'glb_psum' (2#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_psum.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'glb_weight' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_weight.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'glb_weight' (3#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/glb_weight.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'GLB_cluster' (4#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/GLB_cluster.sv:23]
+WARNING: [Synth 8-6104] Input port 'r_data_glb_iact' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:114]
+WARNING: [Synth 8-6104] Input port 'r_data_glb_wght' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:116]
+INFO: [Synth 8-6157] synthesizing module 'router_cluster' [D:/Fall 19/CSE 240D/Project/Vivado/src/router_old/router_cluster.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH_GLB bound to: 10 - type: integer 
+	Parameter ADDR_BITWIDTH_SPAD bound to: 9 - type: integer 
+	Parameter kernel_size bound to: 3 - type: integer 
+	Parameter act_size bound to: 5 - type: integer 
+	Parameter NUM_ROUTER_PSUM bound to: 1 - type: integer 
+	Parameter NUM_ROUTER_IACT bound to: 1 - type: integer 
+	Parameter NUM_ROUTER_WGHT bound to: 1 - type: integer 
+	Parameter A_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter PSUM_READ_ADDR bound to: 0 - type: integer 
+	Parameter PSUM_LOAD_ADDR bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'router_iact' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/imports/new/router_iact.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH_GLB bound to: 10 - type: integer 
+	Parameter ADDR_BITWIDTH_SPAD bound to: 9 - type: integer 
+	Parameter X_dim bound to: 32'sb00000000000000000000000000000101 
+	Parameter Y_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter kernel_size bound to: 3 - type: integer 
+	Parameter act_size bound to: 5 - type: integer 
+	Parameter A_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 0 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/imports/new/router_iact.sv:67]
+INFO: [Synth 8-6155] done synthesizing module 'router_iact' (5#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/imports/new/router_iact.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'router_weight' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_weight.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH_GLB bound to: 10 - type: integer 
+	Parameter ADDR_BITWIDTH_SPAD bound to: 9 - type: integer 
+	Parameter X_dim bound to: 32'sb00000000000000000000000000000101 
+	Parameter Y_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter kernel_size bound to: 3 - type: integer 
+	Parameter act_size bound to: 5 - type: integer 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_weight.sv:68]
+INFO: [Synth 8-6155] done synthesizing module 'router_weight' (6#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_weight.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'router_psum' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_psum.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH_GLB bound to: 10 - type: integer 
+	Parameter ADDR_BITWIDTH_SPAD bound to: 9 - type: integer 
+	Parameter X_dim bound to: 32'sb00000000000000000000000000000101 
+	Parameter Y_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter kernel_size bound to: 3 - type: integer 
+	Parameter act_size bound to: 5 - type: integer 
+	Parameter PSUM_READ_ADDR bound to: 0 - type: integer 
+	Parameter PSUM_LOAD_ADDR bound to: 0 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_psum.sv:73]
+INFO: [Synth 8-6155] done synthesizing module 'router_psum' (7#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_psum.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'router_cluster' (8#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/router_old/router_cluster.sv:23]
+WARNING: [Synth 8-6104] Input port 'r_addr_iact' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:168]
+WARNING: [Synth 8-6104] Input port 'read_req_iact' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:169]
+WARNING: [Synth 8-6104] Input port 'act_in' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:171]
+WARNING: [Synth 8-6104] Input port 'load_en_act' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:172]
+WARNING: [Synth 8-6104] Input port 'r_addr_wght' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:179]
+WARNING: [Synth 8-6104] Input port 'read_req_wght' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:180]
+WARNING: [Synth 8-6104] Input port 'filt_in' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:182]
+WARNING: [Synth 8-6104] Input port 'load_en_wght' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:183]
+WARNING: [Synth 8-6104] Input port 'w_addr_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:191]
+WARNING: [Synth 8-6104] Input port 'write_en_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:192]
+WARNING: [Synth 8-6104] Input port 'w_data_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:193]
+INFO: [Synth 8-6157] synthesizing module 'PE_cluster' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE_cluster.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter X_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter Y_dim bound to: 32'sb00000000000000000000000000000011 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_READ_ADDR bound to: 100 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'PE' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_READ_ADDR bound to: 100 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-6157] synthesizing module 'SPad' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/SPad.sv:23]
+	Parameter DATA_BITWIDTH bound to: 16 - type: integer 
+	Parameter ADDR_BITWIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'SPad' (9#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/SPad.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'MAC' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/MAC.sv:23]
+	Parameter IN_BITWIDTH bound to: 16 - type: integer 
+	Parameter OUT_BITWIDTH bound to: 16 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element mult_out_reg was removed.  [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/MAC.sv:36]
+INFO: [Synth 8-6155] done synthesizing module 'MAC' (10#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/MAC.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/mux2.sv:23]
+	Parameter WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (11#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/mux2.sv:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized0' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 3 - type: integer 
+	Parameter A_READ_ADDR bound to: 105 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized0' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized1' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 6 - type: integer 
+	Parameter A_READ_ADDR bound to: 110 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized1' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized2' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_READ_ADDR bound to: 101 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized2' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized3' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 3 - type: integer 
+	Parameter A_READ_ADDR bound to: 106 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized3' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized4' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 6 - type: integer 
+	Parameter A_READ_ADDR bound to: 111 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized4' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized5' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 0 - type: integer 
+	Parameter A_READ_ADDR bound to: 102 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized5' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized6' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 3 - type: integer 
+	Parameter A_READ_ADDR bound to: 107 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized6' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PE__parameterized7' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter W_READ_ADDR bound to: 6 - type: integer 
+	Parameter A_READ_ADDR bound to: 112 - type: integer 
+	Parameter W_LOAD_ADDR bound to: 0 - type: integer 
+	Parameter A_LOAD_ADDR bound to: 100 - type: integer 
+	Parameter PSUM_ADDR bound to: 500 - type: integer 
+	Parameter kernel_size bound to: 32'sb00000000000000000000000000000011 
+	Parameter act_size bound to: 32'sb00000000000000000000000000000101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:120]
+INFO: [Synth 8-6155] done synthesizing module 'PE__parameterized7' (12#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'PE_cluster' (13#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE_cluster.sv:23]
+WARNING: [Synth 8-6104] Input port 'r_data_spad_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:226]
+WARNING: [Synth 8-6104] Input port 'r_data_spad_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:226]
+WARNING: [Synth 8-6104] Input port 'r_data_spad_psum' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:226]
+WARNING: [Synth 8-6104] Input port 'write_psum_ctrl' has an internal driver [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:227]
+INFO: [Synth 8-6155] done synthesizing module 'HMNoC_cluster' (14#1) [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:23]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[9]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[8]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[7]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[6]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[5]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[4]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[3]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[2]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[1]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[0]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[15]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[14]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[13]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[12]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[11]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[10]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[9]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[8]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[7]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[6]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[5]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[4]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[3]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[2]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[1]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 433.207 ; gain = 151.453
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:read_req_iact to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:read_req_wght to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:write_en_psum to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_iact[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:r_addr_wght[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_addr_psum[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[15] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[14] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[13] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[12] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[11] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[10] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin GLB_cluster_0:w_data_psum[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:104]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[15] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[14] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[13] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[12] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[11] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[10] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_iact[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[15] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[14] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[13] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[12] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[11] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[10] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_glb_wght[0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][15] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][14] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][13] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][12] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][11] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][10] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][9] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][8] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][7] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][6] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][5] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][4] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][3] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][2] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][1] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[0][0] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[1][15] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[1][14] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+WARNING: [Synth 8-3295] tying undriven pin router_cluster_0:r_data_spad_psum[1][13] to constant 0 [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/HMNoC_cluster.sv:161]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 433.207 ; gain = 151.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 433.207 ; gain = 151.453
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xczu7ev-ffvf1517-1LV-i
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/constrs_1/new/constraints_1.xdc]
+Finished Parsing XDC File [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/constrs_1/new/constraints_1.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1532.438 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1532.438 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.088 . Memory (MB): peak = 1532.438 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1532.438 ; gain = 1250.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu7ev-ffvf1517-1LV-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1532.438 ; gain = 1250.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:21 . Memory (MB): peak = 1532.438 ; gain = 1250.684
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'router_iact'
+INFO: [Synth 8-5544] ROM "load_en_spad" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'router_weight'
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "pe_psum" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "w_addr_glb_psum" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "iter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "w_data_glb_psum" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sum_in_mux_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "load_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+                READ_GLB |                               01 |                              001
+              WRITE_SPAD |                               10 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'router_iact'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                              000
+                READ_GLB |                               01 |                              001
+              WRITE_SPAD |                               10 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'router_weight'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1532.438 ; gain = 1250.684
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 3     
+	   2 Input      9 Bit       Adders := 24    
+	   2 Input      8 Bit       Adders := 9     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      3 Bit       Adders := 10    
++---Registers : 
+	               16 Bit    Registers := 57    
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 18    
+	                8 Bit    Registers := 18    
+	                5 Bit    Registers := 3     
+	                3 Bit    Registers := 39    
+	                1 Bit    Registers := 59    
++---RAMs : 
+	              16K Bit         RAMs := 3     
+	               8K Bit         RAMs := 9     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 13    
+	   2 Input     16 Bit        Muxes := 19    
+	   2 Input     14 Bit        Muxes := 12    
+	   2 Input     10 Bit        Muxes := 4     
+	   3 Input     10 Bit        Muxes := 3     
+	   4 Input     10 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 18    
+	   2 Input      8 Bit        Muxes := 9     
+	   8 Input      8 Bit        Muxes := 9     
+	   2 Input      7 Bit        Muxes := 9     
+	   2 Input      5 Bit        Muxes := 4     
+	   3 Input      5 Bit        Muxes := 2     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 28    
+	   4 Input      3 Bit        Muxes := 10    
+	   8 Input      3 Bit        Muxes := 9     
+	   3 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 99    
+	   3 Input      1 Bit        Muxes := 16    
+	   4 Input      1 Bit        Muxes := 6     
+	   5 Input      1 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 135   
+	   9 Input      1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module glb_iact 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---RAMs : 
+	              16K Bit         RAMs := 1     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+Module glb_psum 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---RAMs : 
+	              16K Bit         RAMs := 1     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+Module glb_weight 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---RAMs : 
+	              16K Bit         RAMs := 1     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+Module router_iact 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1     
+	   3 Input     10 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 8     
+Module router_weight 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1     
+	   3 Input     10 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 8     
+Module router_psum 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 4     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 2     
+	   4 Input     10 Bit        Muxes := 1     
+	   3 Input     10 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+	   4 Input      1 Bit        Muxes := 6     
+	   5 Input      1 Bit        Muxes := 1     
+Module SPad 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---RAMs : 
+	               8K Bit         RAMs := 1     
++---Muxes : 
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+Module MAC 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+Module mux2 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module PE 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE__parameterized7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   8 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 10    
+	   9 Input      1 Bit        Muxes := 2     
+Module PE_cluster 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 3     
++---Registers : 
+	               16 Bit    Registers := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1728 (col length:144)
+BRAMs: 624 (col length: RAMB18 144 RAMB36 72)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[0].pe/filt_count_reg[7:0]' into 'gen_X[0].gen_Y[0].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[1].pe/filt_count_reg[7:0]' into 'gen_X[0].gen_Y[1].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[2].pe/filt_count_reg[7:0]' into 'gen_X[0].gen_Y[2].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[0].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[0].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[0].pe/filt_count_reg[7:0]' into 'gen_X[1].gen_Y[0].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[1].pe/filt_count_reg[7:0]' into 'gen_X[1].gen_Y[1].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[2].pe/filt_count_reg[7:0]' into 'gen_X[1].gen_Y[2].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[1].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[1].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[0].pe/filt_count_reg[7:0]' into 'gen_X[2].gen_Y[0].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[0].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[0].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[1].pe/filt_count_reg[7:0]' into 'gen_X[2].gen_Y[1].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[1].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[1].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[2].pe/filt_count_reg[7:0]' into 'gen_X[2].gen_Y[2].pe/filt_count_reg[7:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:104]
+INFO: [Synth 8-4471] merging register 'gen_X[2].gen_Y[2].pe/iter_reg[2:0]' into 'gen_X[2].gen_Y[2].pe/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/PE.sv:115]
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/filt_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/r_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "gen_X[0].gen_Y[0].pe/w_addr" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[0].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[1].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[0].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[0].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[1].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[1].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[2].pe/iter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "gen_X[2].gen_Y[2].pe/filt_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+DSP Report: Generating DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[0].gen_Y[2].pe/filt_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[2].pe/act_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[2].pe/mac_0/out_reg is absorbed into DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[2].pe/mac_0/out0 is absorbed into DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[2].pe/mac_0/out1 is absorbed into DSP gen_X[0].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[0].gen_Y[1].pe/filt_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[1].pe/act_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[1].pe/mac_0/out_reg is absorbed into DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[1].pe/mac_0/out0 is absorbed into DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[1].pe/mac_0/out1 is absorbed into DSP gen_X[0].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[0].gen_Y[0].pe/filt_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[0].pe/act_in_reg_reg is absorbed into DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[0].gen_Y[0].pe/mac_0/out_reg is absorbed into DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[0].pe/mac_0/out0 is absorbed into DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[0].gen_Y[0].pe/mac_0/out1 is absorbed into DSP gen_X[0].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: Generating DSP pe_out_reg[0], operation Mode is: (PCIN+(A:0x0):B+C)'.
+DSP Report: register pe_out_reg[0] is absorbed into DSP pe_out_reg[0].
+DSP Report: operator psum_adder_return is absorbed into DSP pe_out_reg[0].
+DSP Report: Generating DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[1].gen_Y[2].pe/filt_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[2].pe/act_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[2].pe/mac_0/out_reg is absorbed into DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[2].pe/mac_0/out0 is absorbed into DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[2].pe/mac_0/out1 is absorbed into DSP gen_X[1].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[1].gen_Y[1].pe/filt_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[1].pe/act_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[1].pe/mac_0/out_reg is absorbed into DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[1].pe/mac_0/out0 is absorbed into DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[1].pe/mac_0/out1 is absorbed into DSP gen_X[1].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[1].gen_Y[0].pe/filt_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[0].pe/act_in_reg_reg is absorbed into DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[1].gen_Y[0].pe/mac_0/out_reg is absorbed into DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[0].pe/mac_0/out0 is absorbed into DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[1].gen_Y[0].pe/mac_0/out1 is absorbed into DSP gen_X[1].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: Generating DSP pe_out_reg[1], operation Mode is: (PCIN+(A:0x0):B+C)'.
+DSP Report: register pe_out_reg[1] is absorbed into DSP pe_out_reg[1].
+DSP Report: operator psum_adder0_return is absorbed into DSP pe_out_reg[1].
+DSP Report: Generating DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[2].gen_Y[2].pe/filt_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[2].pe/act_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[2].pe/mac_0/out_reg is absorbed into DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[2].pe/mac_0/out0 is absorbed into DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[2].pe/mac_0/out1 is absorbed into DSP gen_X[2].gen_Y[2].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[2].gen_Y[1].pe/filt_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[1].pe/act_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[1].pe/mac_0/out_reg is absorbed into DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[1].pe/mac_0/out0 is absorbed into DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[1].pe/mac_0/out1 is absorbed into DSP gen_X[2].gen_Y[1].pe/mac_0/out_reg.
+DSP Report: Generating DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg, operation Mode is: (P or (C:0x0))+A2*B2.
+DSP Report: register gen_X[2].gen_Y[0].pe/filt_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[0].pe/act_in_reg_reg is absorbed into DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: register gen_X[2].gen_Y[0].pe/mac_0/out_reg is absorbed into DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[0].pe/mac_0/out0 is absorbed into DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: operator gen_X[2].gen_Y[0].pe/mac_0/out1 is absorbed into DSP gen_X[2].gen_Y[0].pe/mac_0/out_reg.
+DSP Report: Generating DSP pe_out_reg[2], operation Mode is: (PCIN+(A:0x0):B+C)'.
+DSP Report: register pe_out_reg[2] is absorbed into DSP pe_out_reg[2].
+DSP Report: operator psum_adder1_return is absorbed into DSP pe_out_reg[2].
+INFO: [Synth 8-4471] merging register 'router_cluster_0/router_psum_gen[0].router_psum_0/iter_reg[2:0]' into 'router_cluster_0/router_psum_gen[0].router_psum_0/iter_reg[2:0]' [D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.srcs/sources_1/new/router_psum.sv:70]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[9]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[8]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[7]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[6]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[5]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[4]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[3]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[2]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[1]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_addr_psum[0]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[15]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[14]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[13]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[12]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[11]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[10]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[9]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[8]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[7]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[6]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[5]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[4]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[3]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[2]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[1]
+WARNING: [Synth 8-3331] design HMNoC_cluster has unconnected port w_data_psum[0]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\router_cluster_0/router_psum_gen[0].router_psum_0/state_reg[2] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:37 . Memory (MB): peak = 1532.438 ; gain = 1250.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+|Module Name   | RTL Object                                            | Inference | Size (Depth x Width) | Primitives                    | 
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | GLB_cluster_0/glb_iact_gen[0].glb_iact_inst/mem_reg   | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
+|HMNoC_cluster | GLB_cluster_0/glb_psum_gen[0].glb_psum_inst/mem_reg   | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
+|HMNoC_cluster | GLB_cluster_0/glb_wght_gen[0].glb_weight_inst/mem_reg | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (PCIN+(A:0x0):B+C)'  | 30     | 16     | 16     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (PCIN+(A:0x0):B+C)'  | 30     | 16     | 16     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (P or (C:0x0))+A2*B2 | 16     | 16     | 16     | -      | 16     | 1    | 1    | 0    | -    | -     | 0    | 1    | 
+|PE_cluster  | (PCIN+(A:0x0):B+C)'  | 30     | 16     | 16     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:50 . Memory (MB): peak = 1973.750 ; gain = 1691.996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:58 . Memory (MB): peak = 2127.305 ; gain = 1845.551
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping  Report
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+|Module Name   | RTL Object                                            | Inference | Size (Depth x Width) | Primitives                    | 
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[0].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[1].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[2].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[1].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | pe_cluster_0/gen_X[2].gen_Y[0].pe/spad_pe0/mem_reg    | Implied   | 512 x 16             | RAM64X1D x 16  RAM64M8 x 16   | 
+|HMNoC_cluster | GLB_cluster_0/glb_iact_gen[0].glb_iact_inst/mem_reg   | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
+|HMNoC_cluster | GLB_cluster_0/glb_psum_gen[0].glb_psum_inst/mem_reg   | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
+|HMNoC_cluster | GLB_cluster_0/glb_wght_gen[0].glb_weight_inst/mem_reg | Implied   | 1 K x 16             | RAM64X1D x 32  RAM64M8 x 32   | 
++--------------+-------------------------------------------------------+-----------+----------------------+-------------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:01:01 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:50 ; elapsed = 00:01:02 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:01:02 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------------------+------+
+|      |Cell              |Count |
++------+------------------+------+
+|1     |BUFG              |     1|
+|2     |DSP_ALU           |    12|
+|3     |DSP_A_B_DATA      |     9|
+|4     |DSP_A_B_DATA_1    |     3|
+|5     |DSP_C_DATA        |    12|
+|6     |DSP_MULTIPLIER    |     9|
+|7     |DSP_MULTIPLIER_1  |     3|
+|8     |DSP_M_DATA        |    12|
+|9     |DSP_OUTPUT        |    12|
+|10    |DSP_PREADD        |    12|
+|11    |DSP_PREADD_DATA   |     9|
+|12    |DSP_PREADD_DATA_1 |     3|
+|13    |LUT1              |   174|
+|14    |LUT2              |   134|
+|15    |LUT3              |   138|
+|16    |LUT4              |   256|
+|17    |LUT5              |   258|
+|18    |LUT6              |  1088|
+|19    |MUXF7             |   132|
+|20    |MUXF8             |    21|
+|21    |RAM64M8           |   240|
+|22    |RAM64X1D          |   240|
+|23    |FDRE              |   793|
+|24    |FDSE              |    24|
+|25    |IBUF              |    70|
+|26    |OBUF              |    17|
++------+------------------+------+
+
+Report Instance Areas: 
++------+-------------------------------------------+------------------------------------------------------------+------+
+|      |Instance                                   |Module                                                      |Cells |
++------+-------------------------------------------+------------------------------------------------------------+------+
+|1     |top                                        |                                                            |  3682|
+|2     |  GLB_cluster_0                            |GLB_cluster                                                 |   600|
+|3     |    \glb_iact_gen[0].glb_iact_inst         |glb_iact                                                    |   200|
+|4     |    \glb_psum_gen[0].glb_psum_inst         |glb_psum                                                    |   200|
+|5     |    \glb_wght_gen[0].glb_weight_inst       |glb_weight                                                  |   200|
+|6     |  pe_cluster_0                             |PE_cluster                                                  |  2566|
+|7     |    \pe_out_reg[0]                         |\pe_cluster_0/pe_out_reg[0]_funnel                          |     8|
+|8     |    \pe_out_reg[1]                         |\pe_cluster_0/pe_out_reg[0]_funnel__1                       |     8|
+|9     |    \pe_out_reg[2]                         |\pe_cluster_0/pe_out_reg[0]_funnel__2                       |     8|
+|10    |    \gen_X[0].gen_Y[0].pe                  |PE                                                          |   288|
+|11    |      mac_0                                |MAC_14                                                      |    30|
+|12    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__2  |     8|
+|13    |      spad_pe0                             |SPad_15                                                     |   105|
+|14    |    \gen_X[0].gen_Y[1].pe                  |PE__parameterized0                                          |   280|
+|15    |      mac_0                                |MAC_12                                                      |    30|
+|16    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__1  |     8|
+|17    |      spad_pe0                             |SPad_13                                                     |   105|
+|18    |    \gen_X[0].gen_Y[2].pe                  |PE__parameterized1                                          |   284|
+|19    |      mac_0                                |MAC_10                                                      |    30|
+|20    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel     |     8|
+|21    |      spad_pe0                             |SPad_11                                                     |   105|
+|22    |    \gen_X[1].gen_Y[0].pe                  |PE__parameterized2                                          |   276|
+|23    |      mac_0                                |MAC_8                                                       |    30|
+|24    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__5  |     8|
+|25    |      spad_pe0                             |SPad_9                                                      |   105|
+|26    |    \gen_X[1].gen_Y[1].pe                  |PE__parameterized3                                          |   284|
+|27    |      mac_0                                |MAC_6                                                       |    30|
+|28    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__4  |     8|
+|29    |      spad_pe0                             |SPad_7                                                      |   105|
+|30    |    \gen_X[1].gen_Y[2].pe                  |PE__parameterized4                                          |   285|
+|31    |      mac_0                                |MAC_4                                                       |    30|
+|32    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__3  |     8|
+|33    |      spad_pe0                             |SPad_5                                                      |   105|
+|34    |    \gen_X[2].gen_Y[0].pe                  |PE__parameterized5                                          |   279|
+|35    |      mac_0                                |MAC_2                                                       |    30|
+|36    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__8  |     8|
+|37    |      spad_pe0                             |SPad_3                                                      |   105|
+|38    |    \gen_X[2].gen_Y[1].pe                  |PE__parameterized6                                          |   284|
+|39    |      mac_0                                |MAC_0                                                       |    30|
+|40    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__7  |     8|
+|41    |      spad_pe0                             |SPad_1                                                      |   105|
+|42    |    \gen_X[2].gen_Y[2].pe                  |PE__parameterized7                                          |   282|
+|43    |      mac_0                                |MAC                                                         |    30|
+|44    |        out_reg                            |\pe_cluster_0/gen_X[0].gen_Y[2].pe/mac_0/out_reg_funnel__6  |     8|
+|45    |      spad_pe0                             |SPad                                                        |   105|
+|46    |  router_cluster_0                         |router_cluster                                              |   264|
+|47    |    \router_iact_gen[0].router_iact_0      |router_iact                                                 |    62|
+|48    |    \router_psum_gen[0].router_psum_0      |router_psum                                                 |   140|
+|49    |    \router_weight_gen[0].router_weight_0  |router_weight                                               |    62|
++------+-------------------------------------------+------------------------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 26 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:49 . Memory (MB): peak = 2128.727 ; gain = 747.742
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:01:03 . Memory (MB): peak = 2128.727 ; gain = 1846.973
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 716 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2134.805 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 563 instances were transformed.
+  BUFG => BUFGCE: 1 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD_DATA, DSP_PREADD): 12 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 70 instances
+  RAM64M8 => RAM64M8 (RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E, RAMD64E): 240 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 240 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+265 Infos, 170 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:09 . Memory (MB): peak = 2134.805 ; gain = 1853.051
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2134.805 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/Fall 19/CSE 240D/Project/Vivado/src/HMNoC/HMNoC.runs/synth_1/HMNoC_cluster.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file HMNoC_cluster_utilization_synth.rpt -pb HMNoC_cluster_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 13 10:49:32 2019...
