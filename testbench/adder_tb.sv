@@ -59,7 +59,7 @@ module adder_tb();
 		B_in = 0;
 		C_in = 1;
 		
-				#50
+		#50
 		
 		A_in = 0;
 		B_in = 1;

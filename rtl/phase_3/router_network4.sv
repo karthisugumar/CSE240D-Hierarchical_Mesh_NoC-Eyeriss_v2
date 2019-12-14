@@ -26,6 +26,7 @@ module router_network4
 	)
 	(
 	
+	
 		///////////////      ROUTER WEST 0      ///////////////////////////////////
 
 	input [3:0] router_mode_west_0,
