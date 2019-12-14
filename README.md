@@ -3,6 +3,10 @@
 # Hierarchical Mesh NoC - Eyeriss v2
 ## A SystemVerilog implementation of Row-Stationary dataflow based on Eyeriss and Hierarchical Mesh NoC based on the [Eyeriss v2 CNN accelerator](https://arxiv.org/abs/1807.07928).
 
+This repository contains the SystemVerilog source code developed as part of the final project for the course "Accelerator Design for Deep Learning" at UCSD. Eyeriss is a popular CNN accelerator that showcased dataflow-based architectures using systolic arrays. The project implemented is inspired by the RS dataflow from the original Eyeriss paper and the Hierarchical Mesh NoC Architecture from the follow-up paper Eyeriss v2. 
+
+![Image of top-level Architecture](https://github.com/karthisugumar/CSE240D-Hierarchical_Mesh_NoC-Eyeriss_v2/blob/master/images/Eyeriss_scaled_down_top.PNG)
+
 ### Prerequisites
 #### Simulation requires a Verilog/SystemVerilog syntheis software package. Xilinx's Vivado Suite is recommended (available for free at the [Xilinx downloads webpage](https://www.xilinx.com/support/download.html))
 
